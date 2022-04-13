@@ -1,16 +1,19 @@
-<template>
-  <h1>Name:{{getPlayerName}}</h1>
+<template>  
+    <modal-game :player-name = getPlayerName />
 </template>
 
 <script>
 import getPlayerName from '~/mixins/getPlayerName.js'
 export default {
-    mixins: [getPlayerName]
+    mixins: [getPlayerName],
+    middleware:['check-name'],
 }
 </script>
 
 <style lang="scss" scoped>
-h1{
-    color: white;
+   
+.modal__game{
+    z-index: 1;
+
 }
 </style>

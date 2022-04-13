@@ -35,7 +35,7 @@
         opacity: .2; 
       }
       &-sky {         
-        bottom: -12rem;
+        bottom: -20rem;
         left: 25%;
         background: $sky-500;
         filter:blur(40px);
