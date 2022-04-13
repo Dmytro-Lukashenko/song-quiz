@@ -1,0 +1,39 @@
+@use "@/assets/scss/variables" as *;
+.modal__button {
+    text-align: center;
+    color:$white;
+    font-family:'Arial';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 1px;
+    width: 165.73px;
+    height: 64px;
+    background: linear-gradient(90deg, #7E55B3 -0.37%, #A769C4 100.37%);
+    border-radius: 5px;
+    text-transform: uppercase;        
+    display: inline-flex;
+    align-items:center;  
+    justify-content: center;
+
+    &:disabled{
+        background: linear-gradient(0deg, #808080 -0.37%, #656565 100.37%);
+        cursor:not-allowed;
+         &:hover {
+        background: linear-gradient(0deg, #808080 -0.37%, #656565 100.37%);
+        cursor:not-allowed;
+    }
+    }
+    &:hover {
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), linear-gradient(90deg, #7E55B3 -0.37%, #A769C4 100.37%);
+    }
+    
+    &-arrow{           
+        width: 1.5rem;
+        height: 1.2rem;
+        margin-right: 0.25rem;
+        margin-left: 0.5rem;
+
+    }
+  }

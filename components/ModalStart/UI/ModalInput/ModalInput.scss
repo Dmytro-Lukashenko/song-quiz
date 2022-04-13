@@ -1,0 +1,48 @@
+@use "@/assets/scss/variables" as *;
+.modal__input{
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;        
+    color: $white;        
+    width: 730px;
+    height: 3.5rem;
+    background-color: transparent;
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid $violet-700;
+    outline: 2px solid transparent;       
+    margin-bottom: 2rem;
+    transition-property: color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-text-decoration-color,-webkit-backdrop-filter;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition-duration: .2s;
+    &::placeholder{            
+        text-transform: uppercase;            
+        opacity: 0.5;
+    }
+    &:hover{
+        border-bottom: 1px solid grey;
+    }
+    &:focus{
+        outline:none;            
+        border-bottom: 1px solid $white;
+        font-weight: 700;
+        opacity: 1;
+    }
+    &:focus::-webkit-input-placeholder {
+        color: transparent;
+    }
+
+    &:focus::-moz-placeholder {
+        color: transparent;
+    }
+
+    :focus:-moz-placeholder {
+        color: transparent;
+    }
+
+    :focus:-ms-input-placeholder {
+        color: transparent;
+    }         
+  }
