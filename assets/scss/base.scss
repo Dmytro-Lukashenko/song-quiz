@@ -1,5 +1,9 @@
 @use "variables" as *;
 @use "reset";
-@use "transitions";
+
+html{
+     //This defines what 1 rem is
+     font-size: 62.5%;
+}
 
 

@@ -1,5 +1,5 @@
-<template>  
-    <modal-game :player-name = getPlayerName />
+<template>      
+    <modal-game :player-name = getPlayerName />   
 </template>
 
 <script>
@@ -11,9 +11,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-   
-.modal__game{
-    z-index: 1;
-
-}
 </style>

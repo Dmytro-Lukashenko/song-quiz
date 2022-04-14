@@ -4,9 +4,14 @@
     <p class="modal__subtitle">{{subtitle}}</p>
     <div>
         <modal-input v-model="nameValue"/>
-    </div>
+    </div>    
     <div>
-        <modal-button :name-value="nameValue"/>
+        <quiz-button 
+            class="modal__button"            
+            :name-value="nameValue" 
+            :disabled = !nameValue
+            title="START QUIZ"            
+            @click.prevent="startQuiz"/>            
     </div>
 </form> 
 </template>
@@ -20,6 +25,12 @@ export default {
             subtitle: 'Please enter your name and let\'s start our quiz!'
         }
     },
+     methods:{
+        startQuiz(){
+            this.$store.dispatch('setPlayerName', this.nameValue)
+            this.$router.push('/quiz')
+        }
+    }
 }
 </script>
 

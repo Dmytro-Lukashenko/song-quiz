@@ -20,14 +20,15 @@
 
     .bg__animated {
       position: absolute;      
-      width: 36rem;
-      height: 36rem;
-      border-radius: 50%;
-           
-      // mix-blend-mode: screen;
+      width: 50rem;
+      height: 50rem;
+      border-radius: 50%;    
+      z-index: 0;          
+      
       animation: blob 7s infinite;
 
-      &-red {         
+      &-red {       
+        z-index: 0;     
         top: 1.25rem;
         left: -12rem;
         background-color: $red-900;
@@ -35,13 +36,15 @@
         opacity: .2; 
       }
       &-sky {         
+        z-index: 0;   
         bottom: -20rem;
         left: 25%;
         background: $sky-500;
         filter:blur(40px);
         opacity: .1; 
       }
-      &-yellow {        
+      &-yellow {      
+        z-index: 0;     
         top: 6rem;
         right: -12rem;
         background: $yellow-300;
