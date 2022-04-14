@@ -31,7 +31,7 @@ export default {
       top:5rem;
       left:50%;
       transform: translateX(-50%);
-      width: 9rem;
+      width: 13rem;
       z-index: 10;
     }   
     .modal-start{

@@ -6,7 +6,7 @@ export const state = () => ({
 
 export const mutations = {
   [SET_PLAYER_NAME](state, nameValue) {
-    state.playerName = nameValue.toUpperCase()
+    state.playerName = nameValue
   },
 }
 
