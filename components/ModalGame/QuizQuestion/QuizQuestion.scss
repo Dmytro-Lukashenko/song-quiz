@@ -1,0 +1,53 @@
+@use '~assets/scss/variables' as *;
+.actions__question{
+    width: 41.5rem;
+    height: 6rem;
+    border: 0.1rem solid $violet-700;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    &:hover {
+        cursor: pointer;
+        border: 0.1rem solid $white;
+        background-color: $violet-700;        
+    }
+    &:hover  &__container--point{       
+        border: 0.1rem solid $white;                           
+    }
+
+    &__container{
+      width: 100%;
+      height: 100%;
+      display: flex;          
+      align-items: center;
+
+      &--point{
+        width: 2.5rem;
+        height: 2.5rem;
+        border: 0.1rem solid $violet-700;
+        border-radius: 50%;
+        margin: 0 2rem;
+      }
+      &--title{
+        font-family: 'Arial';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.4rem;
+       
+      }
+    }
+  }
+  .wrong{   
+    border: 0.1rem solid $red-300;
+    background-color: $red-800;    
+    .actions__question__container--point{
+        border: 0.1rem solid $red-300;
+    }
+  }
+
+  .right {
+    border: 0.1rem solid $green-300;
+    background-color: $green-800;    
+    .actions__question__container--point{
+        border: 0.1rem solid $green-300;
+    }
+  }

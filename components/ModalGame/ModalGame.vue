@@ -16,35 +16,31 @@
 
                 <p class="actions__subtitle">Listen to the audio and guess what song is it from the list</p>                              
 
-                <audio-player file="https://upload.wikimedia.org/wikipedia/commons/d/d6/Louis-Emmanuel_Jadin_-_Nocturne_No._3_in_G_minor_-_2._Allegro_molto.ogg"/>
-                                 
-                <!-- <div class="actions__question"> 
-                    <div class="actions__question__container">
-                        <div class="actions__question__container--point"></div>
-                        <h2 class="actions__question__container--title">01:Louis Armstrong - What a Wonderful World</h2>
-                    </div>
-                </div>
-                <div class="actions__question">
-                    <div class="actions__question__container">
-                        <div class="actions__question__container--point"></div>
-                        <h2 class="actions__question__container--title">01:Louis Armstrong - What a Wonderful World</h2>
-                    </div>
-                </div>
-                <div class="actions__question">                    
-                    <div class="actions__question__container">
-                        <div class="actions__question__container--point"></div>
-                        <h2 class="actions__question__container--title">01:Louis Armstrong - What a Wonderful World</h2>
-                    </div>
-                </div>
-                <div class="actions__question">                    
-                    <div class="actions__question__container">
-                        <div class="actions__question__container--point"></div>
-                        <h2 class="actions__question__container--title">01:Louis Armstrong - What a Wonderful World</h2>
-                    </div>
-                </div>
+                <audio-player :file = urlRandomMusic />
+              
+                <quiz-question
+                v-for="(answer, i) in answers"
+                :id="answer.id"
+                :key="answer.id"                
+                :answer=answer
+                :num-answer="i"                
+                :singer="answer.name"
+                :song="answer.songTitle"                 
+                :class="correctAnswer ? 'right' : 'wrong'"
+                @giveAnswer  ="giveAnswer"                
+                />                
             </div>
             <div class="info">
-                <img class="info__picture" src="images/desktop/union.png" alt="union-quiz-picture">
+                <img 
+                    v-if = !answer 
+                    class="info__picture" 
+                    src="images/desktop/union.png" 
+                    alt="union-quiz-picture"
+                >  
+                <song-data
+                     v-else                    
+                    :answer = answer
+                />
             </div>            
         </div>
         <div class="quiz__button">
@@ -57,23 +53,54 @@
 </template>
 
 <script>
-export default {    
+export default { 
+    props:{
+        urlRandomMusic: {
+            type: String,
+            required: false,
+            default:'',
+        },
+        correctId:{
+            type: String,
+            required: false,
+            default:''
+        },        
+    },
     data() {
-        return {  
+        return {             
+            answer: null,
+            randomMusic: '',  
+            correctAnswer: null,          
         }
-    },    
+    },      
     computed:{
+        answers(){
+            return this.$store.getters.getData
+        },
         getPlayerName(){
           return this.$store.getters.getPlayerName
         },
         getScore(){
             return this.$store.getters.getScore
-        }
-    },
+        },                 
+    },       
     methods:{
         endQuiz() {
+            // this.$emit('endQuiz')
             this.$router.push('/summary')
-        }
+        },
+        giveAnswer(giveAnswer){            
+            this.answer = JSON.parse(JSON.stringify(giveAnswer))    
+            console.log(this.answer)
+            if(this.answer.id === this.correctId){
+                console.log('You are right')
+                this.correctAnswer = true
+            } else {
+                this.correctAnswer = false
+            }        
+        },
+        
+        
     }
 }
 </script>

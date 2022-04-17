@@ -18,17 +18,20 @@
 
 <script>
 export default {
+    
     data() {
         return {
             nameValue:'',
             title: 'Wellcome!',
             subtitle: 'Please enter your name and let\'s start our quiz!'
         }
-    },
+    }, 
      methods:{
         startQuiz(){
-            this.$store.dispatch('setPlayerName', this.nameValue)
+            this.$store.dispatch('setPlayerName', this.nameValue)             
+            console.log('1',this.$store.state.loadedData)          
             this.$router.push('/quiz')
+
         }
     }
 }

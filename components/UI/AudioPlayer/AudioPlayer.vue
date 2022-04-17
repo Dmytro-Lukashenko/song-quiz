@@ -24,7 +24,7 @@
     <div id="seek" class="player-rightside">									
 		<div class="custom__range">
 			<input 
-				style="--min: 0; --max: 100; --val: 0;"
+				style="--min: 0; --max: 100; --val: 50;"
 				:style="progressStyle"
 				type="range"  
 				:value="progressSlide"
@@ -52,8 +52,9 @@ filters: {
     props: {		
 		file: {
 			type: String,
-			default: null
-		},		
+			required: true,
+			default: null,			
+		},				
 	},
 	data(){
         return {
@@ -100,7 +101,7 @@ filters: {
 			this.$refs.audio.muted = false
 		},
 		stop() {
-			this.playing = false;
+			this.playing = this.musicPlay;
 			this.$refs.audio.currentTime = 0;
 		},
 		update(e) {
@@ -116,6 +117,7 @@ filters: {
 	
 };
 </script>
+
 
 <style lang="scss" scoped>
 @import 'AudioPlayer.scss'

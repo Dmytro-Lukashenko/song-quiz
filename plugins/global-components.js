@@ -7,6 +7,8 @@ import QuizButton from '@/components/UI/QuizButton/QuizButton'
 import AudioPlayer from '@/components/UI/AudioPlayer/AudioPlayer'
 import HeaderQuiz from '@/components/ModalGame/HeaderQuiz/HeaderQuiz'
 import MusicGenre from '@/components/ModalGame/MusicGenre/MusicGenre'
+import QuizQuestion from '@/components/ModalGame/QuizQuestion/QuizQuestion'
+import SongData from '@/components/ModalGame/SongData/SongData'
 
 Vue.component('ModalStart', ModalStart)
 Vue.component('ModalInput', ModalInput)
@@ -16,3 +18,5 @@ Vue.component('QuizButton', QuizButton)
 Vue.component('AudioPlayer', AudioPlayer)
 Vue.component('HeaderQuiz', HeaderQuiz)
 Vue.component('MusicGenre', MusicGenre)
+Vue.component('QuizQuestion', QuizQuestion)
+Vue.component('SongData', SongData)
