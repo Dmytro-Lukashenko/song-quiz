@@ -1,0 +1,69 @@
+@use '~assets/scss/variables' as *;
+ .modal {           
+      display: block;  
+      position: relative;          
+      width: 110rem;
+      height: 35.3rem;
+      background-color: $violet-800;
+      padding: 9rem 0;
+      border-radius: 1rem;
+      text-align: center;      
+
+      &__picture{
+        position: absolute;
+        width: 30rem;
+        height: 30rem;
+        left: 50%;
+        top: -10%;
+        transform: translate(-50%, -50%);
+        z-index: -10;
+      }
+
+      &__score{
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: -10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 13rem;
+        height: 13rem;
+        border-radius: 50%;
+        color:$white;      
+        background: $violet-700; 
+        font-family: 'Arial';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 150%; 
+      }
+
+      &__title{
+        font-family: 'Prompt';
+        font-style: normal;
+        color: $white;
+        font-weight: 700;
+        font-size: 3rem;
+        line-height: 4.5rem;       
+        margin-bottom: 1rem;
+
+      }
+      &__subtitle{
+        font-family: 'Arial';
+        font-style: normal;
+        color: $white;
+        opacity: 0.7;
+        font-weight: 400;
+        font-size: 1.6rem;
+        line-height: 150%;
+        margin-bottom: 3rem;
+      }
+      &__button{
+        margin: 0 auto;
+        width: 15.78rem;
+        height: 6.4rem;
+      }
+     
+      
+}

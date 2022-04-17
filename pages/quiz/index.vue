@@ -1,5 +1,7 @@
 <template>      
-    <modal-game :player-name = getPlayerName />   
+    <modal-game 
+        :player-name = getPlayerName     
+    />   
 </template>
 
 <script>

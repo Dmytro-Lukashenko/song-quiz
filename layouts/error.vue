@@ -5,7 +5,7 @@
     <p>{{ error.message }}</p>
     <p>Back to
       <nuxt-link class="error-page__link" to="/">safety</nuxt-link>
-    </p>
+    </p>    
   </div>
 </template>
 
@@ -21,13 +21,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@use '~assets/scss/variables' as *;
 .error-page {
-  text-align: center;
-}
-
-.error-page {
+  position: relative;
+  font-size: 3rem;
+  width: 100%;
+  height: 100vh;
+  transform: translate(0%,-10%);
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: $white;
   &__link {
-    text-decoration: none;
+    // text-decoration: none;
     color: red;
   }
 }

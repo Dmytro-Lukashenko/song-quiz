@@ -1,0 +1,45 @@
+
+@use '~assets/scss/variables' as *;
+.quiz__header{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-between;
+    flex-wrap: wrap;
+    margin: 3rem 0;
+  
+    &-logo{
+      width:13.8rem;
+      height:2.3rem;
+    }
+    &-content{
+      display:flex; 
+      align-items: center;     
+  
+      &--playerName{
+        color:$white;
+        margin-right: 3rem;
+        font-family: 'Arial';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 1.6rem;
+        line-height: 150%;
+        text-transform: uppercase;
+      }
+      &--title{
+        color:$white;
+        font-family: 'Arial';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.6rem;
+        line-height: 150%;
+      }
+      &--score{
+        font-family: 'Arial';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 1.6rem;
+        line-height: 150%;
+      }
+    }   
+  }

@@ -2,6 +2,8 @@ import { SET_PLAYER_NAME } from './-listMutations'
 
 export const state = () => ({
   playerName: '',
+  score: 0,
+  data: '',
 })
 
 export const mutations = {
@@ -19,5 +21,8 @@ export const actions = {
 export const getters = {
   getPlayerName(state) {
     return state.playerName
+  },
+  getScore(state) {
+    return state.score
   },
 }

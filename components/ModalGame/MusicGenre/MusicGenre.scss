@@ -1,0 +1,38 @@
+@use '~assets/scss/variables' as *;
+.quiz__music_genre{ 
+    padding: 0 6rem;          
+    width:100%;
+    height:5rem;
+    border-radius: 1rem 1rem 0 0;
+    border-bottom: 0.1rem solid $violet-700;
+    background: $violet-800;
+    z-index:30;
+
+    &__list{
+      width:100%;
+      height: 100%;      
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      
+
+      &--item{
+        color:$white;
+        font-family: 'Arial';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.4rem;
+        line-height: 100%;
+
+        &-arrow{                           
+            width: 1.5rem;
+            height: 1.5rem;    
+        }
+      }
+      .active{
+        font-weight: 700;
+      }
+
+    }
+  }

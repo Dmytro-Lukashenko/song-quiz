@@ -1,11 +1,8 @@
 <template>
-  <div class="wrapper">    
-    
-  <img class="logo" src="@/static/images/desktop/logo.png" alt="logo">
-  <modal-start class= "modal-start"/>
-  
-  </div>
-  
+  <div class="wrapper">        
+    <img class="logo" src="@/static/images/desktop/logo.png" alt="logo">
+    <modal-start class= "modal-start"/>  
+  </div>  
 </template>
 
 <script>
