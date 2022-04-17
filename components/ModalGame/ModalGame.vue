@@ -18,7 +18,7 @@
 
                 <audio-player file="https://upload.wikimedia.org/wikipedia/commons/d/d6/Louis-Emmanuel_Jadin_-_Nocturne_No._3_in_G_minor_-_2._Allegro_molto.ogg"/>
                                  
-                <div class="actions__question"> 
+                <!-- <div class="actions__question"> 
                     <div class="actions__question__container">
                         <div class="actions__question__container--point"></div>
                         <h2 class="actions__question__container--title">01:Louis Armstrong - What a Wonderful World</h2>
