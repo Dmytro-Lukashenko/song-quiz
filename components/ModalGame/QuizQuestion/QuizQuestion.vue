@@ -34,11 +34,7 @@ export default {
             type: String,
             required: false,
             default:''
-        },
-        correctAnswer:{
-            type: Boolean,
-            required: false,
-        },        
+        },     
    },
    data(){
        return {

@@ -21,6 +21,10 @@
       background-size: cover;
       background: linear-gradient(148.42deg, #EC1919 -0.53%, #D1C234 28.02%, #D134A5 60.47%, #3734D1 90.32%, #23B632 124.06%);
       border-radius: 5px;
+
+      .correct-answer{
+        background: linear-gradient(148.42deg, #EC1567 -0.53%, #D1C234 28.02%, #D134A5 60.47%, #3734D1 90.32%, #23B632 124.06%);
+      }
      
       .pointer{
         display:flex;

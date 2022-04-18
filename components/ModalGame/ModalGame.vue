@@ -16,18 +16,22 @@
 
                 <p class="actions__subtitle">Listen to the audio and guess what song is it from the list</p>                              
 
-                <audio-player :file = urlRandomMusic />
+                <audio-player 
+                    :file = urlRandomMusic
+                    :block-state = blockState
+                    :class="{'correct-answer': blockState}"
+                     />
               
                 <quiz-question
-                v-for="(answer, i) in answers"
-                :id="answer.id"
-                :key="answer.id"                
-                :answer=answer
-                :num-answer="i"                
-                :singer="answer.name"
-                :song="answer.songTitle"                 
-                :class="correctAnswer ? 'right' : 'wrong'"
-                @giveAnswer  ="giveAnswer"                
+                    v-for="(addanswer, i) in answers"
+                    :id="addanswer.id"
+                    :key="addanswer.id"                
+                    :answer = addanswer
+                    :num-answer="i"                
+                    :singer="addanswer.name"
+                    :song="addanswer.songTitle"                 
+                    :class="{'right': addanswer.correct === '1' && addanswer.default === '1', 'wrong': addanswer.correct === '2' && addanswer.default === '0'}"
+                    @giveAnswer  ="giveAnswer"                
                 />                
             </div>
             <div class="info">
@@ -70,7 +74,8 @@ export default {
         return {             
             answer: null,
             randomMusic: '',  
-            correctAnswer: null,          
+            correctAnswer: null, 
+            blockState: false,         
         }
     },      
     computed:{
@@ -89,14 +94,19 @@ export default {
             // this.$emit('endQuiz')
             this.$router.push('/summary')
         },
-        giveAnswer(giveAnswer){            
+        giveAnswer(giveAnswer){               
             this.answer = JSON.parse(JSON.stringify(giveAnswer))    
+            if (this.blockState){
+                return
+            }
             console.log(this.answer)
             if(this.answer.id === this.correctId){
-                console.log('You are right')
-                this.correctAnswer = true
+                console.log('You are right') 
+                this.$store.dispatch('changeCorrectState')             
+                this.blockState = true;
             } else {
-                this.correctAnswer = false
+                console.log('You are wrong')
+                this.$store.dispatch('changeWrongState', this.answer.id)
             }        
         },
         

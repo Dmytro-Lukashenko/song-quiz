@@ -54,7 +54,11 @@ filters: {
 			type: String,
 			required: true,
 			default: null,			
-		},				
+		},
+		blockState:{
+			type: Boolean,
+			required: false,
+		}				
 	},
 	data(){
         return {
