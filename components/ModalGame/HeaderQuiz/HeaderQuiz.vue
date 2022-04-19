@@ -1,7 +1,7 @@
 <template>
   <div class="quiz__header">        
             <img class="quiz__header-logo" src="@/static/images/desktop/logo.png" alt="logo">
-            <div class="quiz__header-content">
+            <div class="quiz__header-content">                              
                 <h2 class="quiz__header-content--playerName">{{playerName}}</h2>                
                 <h2 class="quiz__header-content--title">Your Score: <span class="quiz__header-content--score">{{score}}</span> </h2>                
             </div>

@@ -1,6 +1,8 @@
 <template>
   <div class="actions__player">
-    <div class="player__button">
+    <div 				
+		class="player__button"			
+		>
       <div class="pointer" :title="(playing) ? 'Pause' : 'Play'" @click.prevent="playing = !playing">
         <div class="round"></div>                 
           <svg 
@@ -17,7 +19,7 @@
                   v-else             
                   d="M15,3h-2c-0.553,0-1,0.048-1,0.6v12.8c0,0.552,0.447,0.6,1,0.6h2c0.553,0,1-0.048,1-0.6V3.6C16,3.048,15.553,3,15,3z M7,3H5C4.447,3,4,3.048,4,3.6v12.8C4,16.952,4.447,17,5,17h2c0.553,0,1-0.048,1-0.6V3.6C8,3.048,7.553,3,7,3z"                  
                   />                         
-          </svg>          
+          </svg>  		     
       </div>
         <audio ref="audio" :src="file" style="display: none;" @timeupdate="update" @loadeddata="load" @pause="playing = false"  @play="playing = true"></audio>
     </div> 
@@ -58,7 +60,17 @@ filters: {
 		blockState:{
 			type: Boolean,
 			required: false,
-		}				
+		},
+		correctId:{
+            type: String,
+            required: false,
+            default:''
+        },  
+		answerImage:{
+			type: String,
+            required: false,
+            default:''
+		}     				
 	},
 	data(){
         return {
@@ -78,7 +90,7 @@ filters: {
 		},	
 		progressSlide(){			
 			return this.percentComplete
-		}	
+		},			
 	},
 	
 	watch: {
@@ -86,6 +98,7 @@ filters: {
 			if (value) { return this.$refs.audio.play(); }
 			this.$refs.audio.pause();
 		},		
+		
 	},    
 	methods: {		
 		load() {
@@ -116,7 +129,8 @@ filters: {
 			this.$refs.audio.muted = true
 			this.$refs.audio.currentTime = parseInt(this.$refs.audio.duration * bounds);
 			e.target.style.setProperty('--val', +e.target.value);	
-		}
+		},
+		
 	},
 	
 };

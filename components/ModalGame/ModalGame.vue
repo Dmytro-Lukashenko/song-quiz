@@ -19,13 +19,14 @@
                 <audio-player 
                     :file = urlRandomMusic
                     :block-state = blockState
-                    :class="{'correct-answer': blockState}"
+                    
                      />
               
                 <quiz-question
                     v-for="(addanswer, i) in answers"
                     :id="addanswer.id"
-                    :key="addanswer.id"                
+                    :key="addanswer.id"  
+                    :block-state = blockState              
                     :answer = addanswer
                     :num-answer="i"                
                     :singer="addanswer.name"
@@ -75,7 +76,8 @@ export default {
             answer: null,
             randomMusic: '',  
             correctAnswer: null, 
-            blockState: false,         
+            blockState: false,  
+            answerImage:'',                
         }
     },      
     computed:{
@@ -91,7 +93,7 @@ export default {
     },       
     methods:{
         endQuiz() {
-            // this.$emit('endQuiz')
+            this.$emit('endQuiz')
             this.$router.push('/summary')
         },
         giveAnswer(giveAnswer){               
@@ -104,6 +106,8 @@ export default {
                 console.log('You are right') 
                 this.$store.dispatch('changeCorrectState')             
                 this.blockState = true;
+                this.answerImage = this.answer.image
+                console.log(this.answerImage)
             } else {
                 console.log('You are wrong')
                 this.$store.dispatch('changeWrongState', this.answer.id)

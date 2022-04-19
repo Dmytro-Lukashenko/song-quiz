@@ -22,9 +22,7 @@
       background: linear-gradient(148.42deg, #EC1919 -0.53%, #D1C234 28.02%, #D134A5 60.47%, #3734D1 90.32%, #23B632 124.06%);
       border-radius: 5px;
 
-      .correct-answer{
-        background: linear-gradient(148.42deg, #EC1567 -0.53%, #D1C234 28.02%, #D134A5 60.47%, #3734D1 90.32%, #23B632 124.06%);
-      }
+      
      
       .pointer{
         display:flex;
@@ -58,11 +56,7 @@
           width: 1.6rem;  
           height:1.6rem;        
          }      
-      }
-
-      
-        
-        
+      }     
       }
     .player-rightside{
       display: flex;
@@ -396,3 +390,16 @@
     }  
  }
     
+ .correct-answer{
+  width: 9rem;
+  height: 9rem;
+  margin-right: 1rem;      
+  display:flex;
+  align-items: center;
+  justify-content: center;      
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; 
+  border-radius: 5px;
+  background: red !important;
+}

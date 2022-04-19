@@ -1,7 +1,8 @@
 <template>
   <div class="actions__question" > 
     <div class="actions__question__container" @click="$emit('giveAnswer', answer)">
-        <div class="actions__question__container--point"></div>
+        <div class="actions__question__container--point">            
+        </div>
         <h2 class="actions__question__container--title">0{{numAnswer+1}}: {{singer}} - {{song}}</h2>
     </div>
 </div>
@@ -35,6 +36,10 @@ export default {
             required: false,
             default:''
         },     
+        blockState:{
+            type:Boolean,
+            required: false,
+        }
    },
    data(){
        return {

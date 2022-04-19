@@ -36,18 +36,24 @@
       }
     }
   }
-  .wrong{   
+  .wrong, .wrong:hover{   
     border: 0.1rem solid $red-300;
     background-color: $red-800;    
     .actions__question__container--point{
         border: 0.1rem solid $red-300;
+        background-image: url(static/icons/desktop/close.png);
+        background-repeat: no-repeat;
+        background-position: center;
     }
   }
 
-  .right {
+  .right, .right:hover{
     border: 0.1rem solid $green-300;
     background-color: $green-800;    
     .actions__question__container--point{
-        border: 0.1rem solid $green-300;
+        border: 0.1rem solid $green-300;        
+        background-image: url(static/icons/desktop/check.png);
+        background-repeat: no-repeat;
+        background-position: center;               
     }
   }
