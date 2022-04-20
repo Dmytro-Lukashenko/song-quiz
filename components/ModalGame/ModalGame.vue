@@ -1,11 +1,14 @@
 <template>
-    <div class="container"> 
-        <header-quiz 
+    <div class="container">         
+        <header-quiz        
             :score="getScore" 
             :player-name="getPlayerName" 
+            :block-state = blockState
         />
 
-        <div class="quiz__progress">
+        <div 
+            :class="{'correct__progress': blockState }"
+            class="quiz__progress">            
         </div>
 
         <music-genre/>        
@@ -51,6 +54,7 @@
         <div class="quiz__button">
             <quiz-button
              title="NEXT QUESTION"
+             :disabled="!blockState"
              @click.prevent="endQuiz"
              ></quiz-button>
         </div>

@@ -1,9 +1,13 @@
 <template>
   <div class="quiz__music_genre">
             <ul class="quiz__music_genre__list">
-                <li class="quiz__music_genre__list--item active">JAZZ</li>
+                <li 
+                    :class="{'correct' : blockState}"
+                    class="quiz__music_genre__list--item active">JAZZ{{blockState}}</li>
 
-                <li class="quiz__music_genre__list--item">
+                <li 
+                    :class="{'correct' : blockState}"
+                    class="quiz__music_genre__list--item">
                     <svg 
                         width="20"
                         class="quiz__music_genre__list--item-arrow"
@@ -54,7 +58,12 @@
 
 <script>
 export default {
-
+    props:{
+        blockState:{
+            type: Boolean,
+            required: false,
+        }
+    }
 }
 </script>
 
