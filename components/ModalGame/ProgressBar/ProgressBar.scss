@@ -1,0 +1,29 @@
+.quiz__progress{
+    width:100%;
+    height:0.5rem;
+    background: linear-gradient(270deg, rgba(255, 255, 255, 0) 75%, #FFFFFF 87.86%), rgba(255, 255, 255, 0.2);
+    border-radius: 0.5rem;
+    z-index:30;
+}
+
+.correct__progress_1{
+    background:  linear-gradient(270.05deg, rgba(126, 85, 179, 0) 75%, #A769C4 85%, #A769C4 100%), rgba(255, 255, 255, 0.2) !important;
+  }
+ .active_2{
+    background: linear-gradient(270.05deg, rgba(126, 85, 179, 0) 65%, #A769C4 85%, #A769C4 100%), linear-gradient(270deg, rgba(255, 255, 255, 0) 48.96%, #FFFFFF 75.09%), rgba(255, 255, 255, 0.2) !important;
+  }
+  .correct__progress_2{
+    background: linear-gradient(270.05deg, rgba(126, 85, 179, 0) 50%, #A769C4 64.09%, #A769C4 100%), rgba(255, 255, 255, 0.2) !important;
+  }
+  .active_3{
+    background: linear-gradient(270.05deg, rgba(126, 85, 179, 0) 30%, #A769C4 75%, #A769C4 100%), linear-gradient(270deg, rgba(255, 255, 255, 0) 25%, #FFFFFF 35%), rgba(255, 255, 255, 0.2) !important;
+   }
+  .correct__progress_3{
+    background: linear-gradient(270.05deg, rgba(126, 85, 179, 0) 10%, #A769C4 18%, #A769C4 100%), rgba(255, 255, 255, 0.2) !important;
+  }
+  .active_4{
+    background: linear-gradient(270.05deg, rgba(126, 85, 179, 0) 10%, #A769C4 18.98%, #A769C4 100%), #FFFFFF  !important;
+    }
+  .correct__progress_4{
+    background: #A769C4 !important;
+  }

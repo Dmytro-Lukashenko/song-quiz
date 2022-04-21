@@ -6,11 +6,13 @@
             :player-name="getPlayerName" 
             :block-state = blockState
         />
-
-        <div 
+        <progress-bar
+            :block-state = blockState            
+         />
+        <!-- <div 
             :class="{'correct__progress': blockState }"
             class="quiz__progress">            
-        </div>
+        </div> -->
 
         <music-genre
             :block-state = blockState
