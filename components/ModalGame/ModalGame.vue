@@ -11,7 +11,9 @@
             class="quiz__progress">            
         </div>
 
-        <music-genre/>        
+        <music-genre
+            :block-state = blockState
+        />        
         <div class="quiz__wrapper">
             <div class="actions">
 
@@ -22,7 +24,7 @@
                 <audio-player 
                     :file = urlRandomMusic
                     :block-state = blockState
-                    
+                    :answer-image= answerImage
                      />
               
                 <quiz-question
@@ -62,6 +64,7 @@
 </template>
 
 <script>
+
 export default { 
     props:{
         urlRandomMusic: {
@@ -86,7 +89,9 @@ export default {
     },      
     computed:{
         answers(){
-            return this.$store.getters.getData
+            return this.$store.getters.getData.map((i) => [Math.random(), i])
+      .sort()
+      .map((i) => i[1])
         },
         getPlayerName(){
           return this.$store.getters.getPlayerName
@@ -97,8 +102,10 @@ export default {
     },       
     methods:{
         endQuiz() {
-            this.$emit('endQuiz')
-            this.$router.push('/summary')
+            this.$emit('endQuiz')            
+            this.$store.dispatch('genreIncrease')
+            this.$router.push('/quiz')
+           
         },
         giveAnswer(giveAnswer){               
             this.answer = JSON.parse(JSON.stringify(giveAnswer))    
@@ -111,7 +118,7 @@ export default {
                 this.$store.dispatch('changeCorrectState')             
                 this.blockState = true;
                 this.answerImage = this.answer.image
-                console.log(this.answerImage)
+                console.log('record answerImage',this.answerImage)
             } else {
                 console.log('You are wrong')
                 this.$store.dispatch('changeWrongState', this.answer.id)

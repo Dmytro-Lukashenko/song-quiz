@@ -3,7 +3,7 @@
             <ul class="quiz__music_genre__list">
                 <li 
                     :class="{'correct' : blockState}"
-                    class="quiz__music_genre__list--item active">JAZZ{{blockState}}</li>
+                    class="quiz__music_genre__list--item active">JAZZ</li>
 
                 <li 
                     :class="{'correct' : blockState}"

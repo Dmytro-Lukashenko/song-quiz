@@ -4,6 +4,8 @@ import {
   SET_CORRECT_ID,
   CHANGE_CORRECT_STATE,
   CHANGE_WRONG_STATE,
+  CLEAR_DATA,
+  GENRE_INCREASE,
 } from './-listMutations'
 
 export const state = () => ({
@@ -44,6 +46,13 @@ export const mutations = {
       state.loadedData.find((data) => data.id === id)
     )
   },
+  [CLEAR_DATA](state) {
+    state.loadedData = []
+    state.correctId = ''
+  },
+  [GENRE_INCREASE](state) {
+    state.genre += 1
+  },
 }
 
 export const actions = {
@@ -62,6 +71,12 @@ export const actions = {
   },
   changeWrongState({ commit }, id) {
     commit('CHANGE_WRONG_STATE', id)
+  },
+  clearData({ commit }) {
+    commit('CLEAR_DATA')
+  },
+  genreIncrease({ commit }) {
+    commit('GENRE_INCREASE')
   },
 }
 

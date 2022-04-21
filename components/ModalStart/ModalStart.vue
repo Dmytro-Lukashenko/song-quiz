@@ -31,7 +31,6 @@ export default {
             this.$store.dispatch('setPlayerName', this.nameValue)             
             console.log('1',this.$store.state.loadedData)          
             this.$router.push('/quiz')
-
         }
     }
 }

@@ -1,7 +1,8 @@
 <template>
   <div class="actions__player">
     <div 				
-		class="player__button"			
+		class = "player__button"
+		:style = correctPhoto 			
 		>
       <div class="pointer" :title="(playing) ? 'Pause' : 'Play'" @click.prevent="playing = !playing">
         <div class="round"></div>                 
@@ -90,7 +91,18 @@ filters: {
 		},	
 		progressSlide(){			
 			return this.percentComplete
-		},			
+		},				
+		correctPhoto(){
+			if(this.blockState){
+				console.log('correctPhoto',this.answerImage)
+				return `
+					background-image: url(https://levi9-song-quiz.herokuapp.com/api/${this.answerImage});
+					background-position: center;
+					background-size: auto 9rem;
+				`
+			}
+			return ''
+		}
 	},
 	
 	watch: {

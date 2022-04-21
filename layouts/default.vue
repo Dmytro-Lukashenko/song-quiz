@@ -5,7 +5,7 @@
     <div class="bg__animated bg__animated-sky">      
     </div>
     <div class="bg__animated bg__animated-yellow">      
-    </div>
+    </div>    
   <nuxt/>
   </div>
 </template>
