@@ -6,11 +6,17 @@ import {
   CHANGE_WRONG_STATE,
   CLEAR_DATA,
   GENRE_INCREASE,
+  TOTAL_SCORE_CHANGE,
+  SCORE_DECREASE,
+  LOAD_DATA,
+  CLEAR_STATE,
 } from './-listMutations'
 
 export const state = () => ({
   playerName: '',
-  score: 0,
+  score: 3,
+  totalScore: 0,
+  fetchedData: [],
   loadedData: [],
   genre: 0,
   correctId: '',
@@ -21,11 +27,9 @@ export const mutations = {
     state.playerName = nameValue
   },
   [SET_DATA](state, fetchedData) {
-    const data = JSON.parse(JSON.stringify(fetchedData[state.genre].data))
-    for (const key in data) {
-      state.loadedData.push({ ...data[key], correct: '0', default: '0' })
-    }
-    console.log('loadedData', state.loadedData)
+    console.log('2.fetch N', state.genre)
+    state.fetchedData = JSON.parse(JSON.stringify(fetchedData))
+    console.log('state.fetchedData', state.fetchedData)
   },
   [SET_CORRECT_ID](state, correctId) {
     state.correctId = correctId
@@ -49,13 +53,41 @@ export const mutations = {
   [CLEAR_DATA](state) {
     state.loadedData = []
     state.correctId = ''
+    state.score = 3
   },
   [GENRE_INCREASE](state) {
     state.genre += 1
   },
+  [SCORE_DECREASE](state) {
+    state.score--
+  },
+  [TOTAL_SCORE_CHANGE](state) {
+    state.totalScore += state.score
+  },
+  [LOAD_DATA](state) {
+    const data = JSON.parse(JSON.stringify(state.fetchedData[state.genre].data))
+    for (const key in data) {
+      state.loadedData.push({ ...data[key], correct: '0', default: '0' })
+    }
+    console.log(state.genre, 'loadedData', state.loadedData)
+  },
+  [CLEAR_STATE](state) {
+    state.score = 3
+    state.totalScore = 0
+    state.loadedData = []
+    state.genre = 0
+    state.correctId = ''
+  },
 }
 
 export const actions = {
+  async nuxtServerInit({ dispatch }) {
+    const fetchedData = await this.$axios.$get(
+      'https://levi9-song-quiz.herokuapp.com/api/data'
+    )
+    console.log('1.fetchedData', fetchedData)
+    dispatch('setData', fetchedData)
+  },
   setPlayerName({ commit }, nameValue) {
     commit('SET_PLAYER_NAME', nameValue)
   },
@@ -77,6 +109,18 @@ export const actions = {
   },
   genreIncrease({ commit }) {
     commit('GENRE_INCREASE')
+  },
+  scoreDecrease({ commit }) {
+    commit('SCORE_DECREASE')
+  },
+  totalScoreChange({ commit }) {
+    commit('TOTAL_SCORE_CHANGE')
+  },
+  loadData({ commit }) {
+    commit('LOAD_DATA')
+  },
+  clearState({ commit }) {
+    commit('CLEAR_STATE')
   },
 }
 

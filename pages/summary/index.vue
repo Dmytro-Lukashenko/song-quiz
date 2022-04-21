@@ -3,7 +3,8 @@
     <img class="logo" src="@/static/images/desktop/logo.png" alt="logo">
     <modal-summary 
       class= "modal-summary"
-      :player-name = getPlayerName   
+      :player-name = getPlayerName  
+      :total-score = $store.state.totalScore 
       />  
   </div>  
 </template>
@@ -12,7 +13,7 @@
 import getPlayerName from '~/mixins/getPlayerName.js'
 export default {
   mixins: [getPlayerName],
-  // middleware:['check-name'],
+  middleware:['check-name'],
 
 }
 </script>

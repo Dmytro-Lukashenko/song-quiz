@@ -2,6 +2,7 @@
     <div class="container">         
         <header-quiz        
             :score="getScore" 
+            :total-score = $store.state.totalScore
             :player-name="getPlayerName" 
             :block-state = blockState
         />
@@ -55,9 +56,9 @@
         </div>
         <div class="quiz__button">
             <quiz-button
-             title="NEXT QUESTION"
+             :title="$store.state.genre === 3 ? title1 : title2"
              :disabled="!blockState"
-             @click.prevent="endQuiz"
+             @click.prevent="$store.state.genre < 3 ?  $emit('nextQuestion')  : $emit('endQuiz')"
              ></quiz-button>
         </div>
     </div>
@@ -84,7 +85,9 @@ export default {
             randomMusic: '',  
             correctAnswer: null, 
             blockState: false,  
-            answerImage:'',                
+            answerImage:'',     
+            title1: 'SEE MY SCORE',
+            title2: 'NEXT QUESTION'          
         }
     },      
     computed:{
@@ -100,13 +103,14 @@ export default {
             return this.$store.getters.getScore
         },                 
     },       
+    watch:{
+        correctId(val){
+           this.answer = null
+           this.blockState = false
+        }
+    },
     methods:{
-        endQuiz() {
-            this.$emit('endQuiz')            
-            this.$store.dispatch('genreIncrease')
-            this.$router.push('/quiz')
-           
-        },
+
         giveAnswer(giveAnswer){               
             this.answer = JSON.parse(JSON.stringify(giveAnswer))    
             if (this.blockState){
@@ -119,9 +123,11 @@ export default {
                 this.blockState = true;
                 this.answerImage = this.answer.image
                 console.log('record answerImage',this.answerImage)
+                this.$store.dispatch('totalScoreChange')
             } else {
                 console.log('You are wrong')
                 this.$store.dispatch('changeWrongState', this.answer.id)
+                this.$store.dispatch('scoreDecrease')
             }        
         },
         

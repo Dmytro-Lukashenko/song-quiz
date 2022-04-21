@@ -1,14 +1,14 @@
 <template>
 <form class="modal">
     <img class="modal__picture" src="images/desktop/union.png" alt="union-quiz-picture">
-    <div class="modal__score">{{score}}</div>
+    <div class="modal__score">{{totalScore}}</div>
     <h1 class="modal__title">{{playerName}}{{title}}</h1>
     <p class="modal__subtitle">{{subtitle}}</p>       
     <div>
         <quiz-button 
             class="modal__button"  
             title="TRY AGAIN"            
-            @click.prevent="$router.push('/quiz')"/>            
+            @click.prevent = tryAgain />            
     </div>
 </form> 
 </template>
@@ -19,14 +19,23 @@ export default {
         playerName:{
             type: String,
             required: true,
+        },
+        totalScore:{
+             type: Number,
+            required: true,
         }
     },
     data() {
-        return {          
-            score: 10,  
+        return {    
             title: ', did so great!',
-            subtitle: 'You\'ve got 10 out of 12 points. You are definitely a music lover!'        }
+            subtitle: `You've got ${this.totalScore} out of 12 points. You are definitely a music lover!`}
     },     
+    methods:{
+        tryAgain(){
+            this.$store.dispatch('clearState')
+            this.$router.push('/quiz')
+        }
+    }
 }
 </script>
 
