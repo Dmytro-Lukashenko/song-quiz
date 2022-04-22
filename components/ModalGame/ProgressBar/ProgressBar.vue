@@ -4,7 +4,7 @@
                'correct__progress_1': jazzCorrect,   
                'active_2' : $store.state.genre === 1 && !rockCorrect,             
                'correct__progress_2' : rockCorrect, 
-               'active_3' : $store.state.genre === 2 && !rockCorrect,
+               'active_3' : $store.state.genre === 2 && !popCorrect,
                'correct__progress_3' : popCorrect,
                'active_4' : $store.state.genre === 3,
                'correct__progress_4' : soundtrackCorrect,               
