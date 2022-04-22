@@ -29,19 +29,36 @@
         }
     }
 
-    .audio-player{
-        width:56.5rem;
+    .audio-player{        
+        overflow: hidden;        
     }
+    ::-webkit-scrollbar {
+        width: 20px;
+      }
+      ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px $violet-700; 
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: $violet-700; 
+        border-radius: 10px;
+      }
+      
     .description{
-        text-align: center;
-        &__content{
+        text-align: center;    
+        width:100%;    
+        height:8.5rem;
+        overflow:auto;      
+        
+  
+        &__content{            
             font-family: 'Arial';
             font-style: normal;
             font-weight: 400;
             font-size: 14px;
             line-height: 150%;
-            opacity: 0.7;
-            text-overflow: ellipsis;
+            opacity: 0.7;     
+                  
         }
     }
 }
