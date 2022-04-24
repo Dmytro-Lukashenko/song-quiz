@@ -10,6 +10,7 @@ import MusicGenre from '@/components/ModalGame/MusicGenre/MusicGenre'
 import QuizQuestion from '@/components/ModalGame/QuizQuestion/QuizQuestion'
 import SongData from '@/components/ModalGame/SongData/SongData'
 import ProgressBar from '@/components/ModalGame/ProgressBar/ProgressBar'
+import LoadingBar from '@/components/UI/LoadingBar/LoadingBar'
 
 Vue.component('ModalStart', ModalStart)
 Vue.component('ModalInput', ModalInput)
@@ -22,3 +23,4 @@ Vue.component('MusicGenre', MusicGenre)
 Vue.component('QuizQuestion', QuizQuestion)
 Vue.component('SongData', SongData)
 Vue.component('ProgressBar', ProgressBar)
+Vue.component('LoadingBar', LoadingBar)

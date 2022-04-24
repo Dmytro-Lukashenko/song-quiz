@@ -1,11 +1,14 @@
 <template>      
-    <modal-game       
-        :player-name = getPlayerName   
-        :url-random-music = urlRandomMusic
-        :correct-id = correctId
-        @endQuiz="endQuiz"  
-        @nextQuestion="nextQuestion"      
-    />   
+    <div>        
+        <modal-game     
+            v-if = finish 
+            :player-name = getPlayerName   
+            :url-random-music = urlRandomMusic
+            :correct-id = correctId
+            @endQuiz="endQuiz"  
+            @nextQuestion="nextQuestion"      
+        />   
+    </div>
 </template>
 
 <script>
@@ -20,14 +23,23 @@ export default {
             finish: false,  
         }
     },       
-    async fetch({ store, $axios }) {    
+    async fetch({ store, $axios }) {  
         const fetchedData = await $axios.$get(
         'https://levi9-song-quiz.herokuapp.com/api/data'
         )
-        await store.dispatch('setData', fetchedData)    
+        await store.dispatch('setData', fetchedData)  
     },
     
-    mounted(){           
+    mounted(){
+        // Loader     
+        this.$nextTick(() => {
+        this.$nuxt.$loading.start()
+        setTimeout(() => {
+            this.finish = true;
+            this.$nuxt.$loading.finish()
+        }, 3000)
+        })
+          
         this.$store.dispatch('loadData')
         this.urlRandomMusic = 'https://levi9-song-quiz.herokuapp.com/api/' +this.$store.getters.getRandomQuizMusic[0]        
         this.correctId = this.$store.getters.getRandomQuizMusic[1] 
@@ -47,8 +59,7 @@ export default {
             this.$store.dispatch('setCorrectId', this.correctId)    
         },
        endQuiz(){
-            this.correctId = ''
-            this.urlRandomMusic=''          
+            this.correctId = ''                 
             this.$store.dispatch('clearData')           
             this.$router.push('/summary')
        },  
