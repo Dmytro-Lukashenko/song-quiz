@@ -1,10 +1,10 @@
 <template>      
-    <modal-game 
-        :player-name = getPlayerName  
-        :url-random-music = urlRandomMusic   
+    <modal-game       
+        :player-name = getPlayerName   
+        :url-random-music = urlRandomMusic
         :correct-id = correctId
-        @endQuiz="endQuiz"
-        @nextQuestion="nextQuestion"        
+        @endQuiz="endQuiz"  
+        @nextQuestion="nextQuestion"      
     />   
 </template>
 
@@ -16,21 +16,27 @@ export default {
     data(){
         return {
             urlRandomMusic: '',
-            correctId:'',            
+            correctId:'', 
+            finish: false,  
         }
-    },        
-   mounted(){
-        console.log('mounted')
+    },       
+    async fetch({ store, $axios }) {    
+        const fetchedData = await $axios.$get(
+        'https://levi9-song-quiz.herokuapp.com/api/data'
+        )
+        await store.dispatch('setData', fetchedData)    
+    },
+    
+    mounted(){           
         this.$store.dispatch('loadData')
         this.urlRandomMusic = 'https://levi9-song-quiz.herokuapp.com/api/' +this.$store.getters.getRandomQuizMusic[0]        
         this.correctId = this.$store.getters.getRandomQuizMusic[1] 
-        this.$store.dispatch('setCorrectId', this.correctId)        
-        console.log(this.correctId)
+        this.$store.dispatch('setCorrectId', this.correctId)  
+       
    },
 
    methods: {
-       nextQuestion(){
-            console.log('nextQuestion')
+       nextQuestion(){           
             this.$store.dispatch('clearData')
             this.$store.dispatch('genreIncrease')
             this.$store.dispatch('loadData')
@@ -38,16 +44,14 @@ export default {
             this.correctId = ''
             this.urlRandomMusic = 'https://levi9-song-quiz.herokuapp.com/api/' +this.$store.getters.getRandomQuizMusic[0]        
             this.correctId = this.$store.getters.getRandomQuizMusic[1] 
-            this.$store.dispatch('setCorrectId', this.correctId)        
-            console.log(this.correctId)
+            this.$store.dispatch('setCorrectId', this.correctId)    
         },
        endQuiz(){
             this.correctId = ''
-            this.urlRandomMusic=''
-            this.$store.dispatch('genreIncrease') 
+            this.urlRandomMusic=''          
             this.$store.dispatch('clearData')           
             this.$router.push('/summary')
-       }
+       },  
    }
 }
 </script>

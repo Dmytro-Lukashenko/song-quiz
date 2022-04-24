@@ -8,14 +8,7 @@
 <script>
 export default {
   name: 'IndexPage',
-  // async fetch({dispatch}){
-    
-  //   const fetchedData = await this.$axios.$get(
-  //     'https://levi9-song-quiz.herokuapp.com/api/data'
-  //   )
-  //   console.log('1.fetchedData', fetchedData)
-  //   dispatch('setData', fetchedData)
-  // }
+  
 }
 </script>
 

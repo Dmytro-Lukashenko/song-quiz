@@ -27,9 +27,7 @@ export const mutations = {
     state.playerName = nameValue
   },
   [SET_DATA](state, fetchedData) {
-    console.log('2.fetch N', state.genre)
     state.fetchedData = JSON.parse(JSON.stringify(fetchedData))
-    console.log('state.fetchedData', state.fetchedData)
   },
   [SET_CORRECT_ID](state, correctId) {
     state.correctId = correctId
@@ -37,18 +35,9 @@ export const mutations = {
   [CHANGE_CORRECT_STATE](state) {
     state.loadedData.find((data) => data.id === state.correctId).correct = '1'
     state.loadedData.find((data) => data.id === state.correctId).default = '1'
-    console.log(
-      'change correct',
-      state.loadedData.find((data) => data.id === state.correctId)
-    )
   },
   [CHANGE_WRONG_STATE](state, id) {
-    console.log(state.loadedData[0].correct, id)
     state.loadedData.find((data) => data.id === id).correct = '2'
-    console.log(
-      'change wrong',
-      state.loadedData.find((data) => data.id === id)
-    )
   },
   [CLEAR_DATA](state) {
     state.loadedData = []
@@ -69,7 +58,6 @@ export const mutations = {
     for (const key in data) {
       state.loadedData.push({ ...data[key], correct: '0', default: '0' })
     }
-    console.log(state.genre, 'loadedData', state.loadedData)
   },
   [CLEAR_STATE](state) {
     state.score = 3
@@ -81,13 +69,6 @@ export const mutations = {
 }
 
 export const actions = {
-  async nuxtServerInit({ dispatch }) {
-    const fetchedData = await this.$axios.$get(
-      'https://levi9-song-quiz.herokuapp.com/api/data'
-    )
-    console.log('1.fetchedData', fetchedData)
-    dispatch('setData', fetchedData)
-  },
   setPlayerName({ commit }, nameValue) {
     commit('SET_PLAYER_NAME', nameValue)
   },
@@ -95,7 +76,6 @@ export const actions = {
     commit('SET_DATA', fetchedData)
   },
   setCorrectId({ commit }, correctId) {
-    console.log('correctId', correctId)
     commit('SET_CORRECT_ID', correctId)
   },
   changeCorrectState({ commit }) {
@@ -136,7 +116,6 @@ export const getters = {
   },
   getRandomQuizMusic(state) {
     const index = Math.floor(Math.random() * 4)
-    console.log(index)
     return [state.loadedData[index].audio, state.loadedData[index].id]
   },
 }

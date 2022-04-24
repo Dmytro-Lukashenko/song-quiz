@@ -20,6 +20,8 @@ export default {
     ],
   },
 
+  loading: '~/components/UI/LoadingBar/LoadingBar.vue',
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ['~assets/scss/base.scss'],
 
@@ -27,7 +29,7 @@ export default {
   plugins: ['~plugins/global-components.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
+  components: false,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
@@ -38,7 +40,10 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios',
+    [
+      '@nuxtjs/axios',
+      { baseUrl: 'https://levi9-song-quiz.herokuapp.com/api/' },
+    ],
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

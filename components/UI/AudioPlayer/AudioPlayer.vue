@@ -75,6 +75,7 @@ filters: {
 	},
 	data(){
         return {
+		currentTime: 0,
         currentSeconds: 0,
 		durationSeconds: 0,
 		loaded: false,		
@@ -123,6 +124,7 @@ filters: {
 			throw new Error('Failed to load sound file.');
 		},		
 		seek(e) {
+			console.log('seek')
 			if (!this.loaded) return;
 			const bounds = e.target.getBoundingClientRect();			
 			const seekPos = (e.clientX - bounds.left) / bounds.width;
@@ -130,10 +132,12 @@ filters: {
 			this.$refs.audio.muted = false
 		},
 		stop() {
+			console.log('stop')
 			this.playing = this.musicPlay;
 			this.$refs.audio.currentTime = 0;
 		},
 		update(e) {
+			console.log('update', this.$refs.audio.currentTime)
 			this.currentSeconds = parseInt(this.$refs.audio.currentTime);
 		},
 		moveSlider(e){

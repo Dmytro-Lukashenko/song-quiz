@@ -8,19 +8,14 @@
         />
         <progress-bar
             :block-state = blockState            
-         />
-        <!-- <div 
-            :class="{'correct__progress': blockState }"
-            class="quiz__progress">            
-        </div> -->
-
+         />    
         <music-genre
             :block-state = blockState
         />        
         <div class="quiz__wrapper">
             <div class="actions">
 
-                <h2 class="actions__title">Jazz song</h2>
+                <h2 class="actions__title">{{genre[$store.state.genre]}} song</h2>
 
                 <p class="actions__subtitle">Listen to the audio and guess what song is it from the list</p>                              
 
@@ -68,7 +63,7 @@
 
 <script>
 
-export default { 
+export default {
     props:{
         urlRandomMusic: {
             type: String,
@@ -89,9 +84,16 @@ export default {
             blockState: false,  
             answerImage:'',     
             title1: 'SEE MY SCORE',
-            title2: 'NEXT QUESTION'          
+            title2: 'NEXT QUESTION',
+            genre:{
+                0: 'Jazz',
+                1: 'Rock',
+                2: 'Pop',
+                3: 'Soundtrack',
+            }
+               
         }
-    },      
+    },    
     computed:{
         answers(){
             return this.$store.getters.getData.map((i) => [Math.random(), i])
@@ -110,6 +112,12 @@ export default {
            this.answer = null
            this.blockState = false
         }
+    },
+    created(){
+        console.log('created ModalGame')
+    },
+    mounted(){
+        console.log('mounted ModalGame')
     },
     methods:{
 

@@ -31,6 +31,7 @@ export default {
             title2: ', you can do better, try again!',
             subtitle1: `You've got ${this.totalScore} out of 12 points. You are definitely a music lover!`,
             subtitle2: `You've got ${this.totalScore} out of 12 points.`
+            
             }            
     },     
     methods:{
