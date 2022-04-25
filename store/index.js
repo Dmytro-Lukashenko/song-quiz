@@ -61,10 +61,10 @@ export const mutations = {
   },
   [CLEAR_STATE](state) {
     state.score = 3
-    state.totalScore = 0
     state.loadedData = []
     state.genre = 0
     state.correctId = ''
+    state.totalScore = 0
   },
 }
 

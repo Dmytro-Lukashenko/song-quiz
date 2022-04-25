@@ -4,7 +4,9 @@
 		class = "player__button"
 		:style = correctPhoto 			
 		>
-      <div class="pointer" :title="(playing) ? 'Pause' : 'Play'" @click.prevent="playing = !playing">
+      <div
+		class="pointer" 
+	  	:title="(playing) ? 'Pause' : 'Play'" @click.prevent= playPause>
         <div class="round"></div>                 
           <svg 
               xmlns="http://www.w3.org/2000/svg" 
@@ -22,7 +24,7 @@
                   />                         
           </svg>  		     
       </div>
-        <audio ref="audio" :src="file" style="display: none;" @timeupdate="update" @loadeddata="load" @pause="playing = false"  @play="playing = true"></audio>
+        <audio ref="audio" :src="file" style="display: none;" @timeupdate="nextQ ? updateNext : update" @loadeddata="load" @pause="playing = false"  @play="playing = true"></audio>
     </div> 
     <div id="seek" class="player-rightside">									
 		<div class="custom__range">
@@ -71,15 +73,20 @@ filters: {
 			type: String,
             required: false,
             default:''
-		}     				
+		},
+		nextQ:{
+			type: Boolean,
+			required: false,
+			default: false,
+		}      				
 	},
 	data(){
-        return {
-		currentTime: 0,
+        return {			
         currentSeconds: 0,
 		durationSeconds: 0,
 		loaded: false,		
-		playing: false,			
+		playing: false,		
+		nextQuestion: false,	
         }
     },	
 	computed: {		
@@ -94,8 +101,7 @@ filters: {
 			return this.percentComplete
 		},				
 		correctPhoto(){
-			if(this.blockState){
-				console.log('correctPhoto',this.answerImage)
+			if(this.blockState){			
 				return `
 					background-image: url(https://levi9-song-quiz.herokuapp.com/api/${this.answerImage});
 					background-position: center;
@@ -109,8 +115,18 @@ filters: {
 	watch: {
 		playing(value) {
 			if (value) { return this.$refs.audio.play(); }
-			this.$refs.audio.pause();
-		},		
+			this.$refs.audio.pause();			
+		},				
+		nextQ(value){
+			console.log('Audioplayer nextQ', value)	
+			if(this.playing){
+				this.playing = !this.playing
+			} 
+			if (this.$refs.audio.currentTime === undefined){
+				console.log('fuck currentTime')
+			}
+			
+		},
 		
 	},    
 	methods: {		
@@ -123,22 +139,25 @@ filters: {
 
 			throw new Error('Failed to load sound file.');
 		},		
-		seek(e) {
-			console.log('seek')
+		seek(e) {	
+			console.log('seek', e)		
 			if (!this.loaded) return;
 			const bounds = e.target.getBoundingClientRect();			
 			const seekPos = (e.clientX - bounds.left) / bounds.width;
 			this.$refs.audio.currentTime = parseInt(this.$refs.audio.duration * seekPos);
 			this.$refs.audio.muted = false
 		},
-		stop() {
-			console.log('stop')
-			this.playing = this.musicPlay;
-			this.$refs.audio.currentTime = 0;
+		stop(e) {			
+			console.log('stop', e)
+			this.playing = false;
+			this.$refs.audio.currentTime = 0;			
 		},
-		update(e) {
-			console.log('update', this.$refs.audio.currentTime)
-			this.currentSeconds = parseInt(this.$refs.audio.currentTime);
+		update(e) {	
+			this.currentSeconds = Math.trunc(this.$refs.audio.currentTime);							
+		},
+		updateNext(e){
+			console.log('updateNext')
+			this.currentSeconds = 0
 		},
 		moveSlider(e){
 			const bounds = e.target.value/100
@@ -146,6 +165,11 @@ filters: {
 			this.$refs.audio.currentTime = parseInt(this.$refs.audio.duration * bounds);
 			e.target.style.setProperty('--val', +e.target.value);	
 		},
+		playPause(){		
+			console.log('pause')
+			this.playing = !this.playing 
+						
+		}
 		
 	},
 	

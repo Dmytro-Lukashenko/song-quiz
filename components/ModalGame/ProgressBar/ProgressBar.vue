@@ -30,20 +30,15 @@ export default {
         }
     },
     watch:{
-        blockState(value){
-            console.log('blockState value', value)
+        blockState(value){            
             if(this.$store.state.genre === 0 && this.blockState){
-                this.jazzCorrect = true
-                console.log('jazzCorrect',this.jazzCorrect)
+                this.jazzCorrect = true               
             } else if (this.$store.state.genre === 1 && this.blockState){
-                 this.rockCorrect = true
-                 console.log('rockCorrect',this.rockCorrect)
+                 this.rockCorrect = true                 
             } else if (this.$store.state.genre === 2 && this.blockState){
-                this.popCorrect = true
-                console.log('popCorrect',this.popCorrect)
+                this.popCorrect = true               
             } else if(this.$store.state.genre === 3 && this.blockState){
-                this.soundtrackCorrect = true
-                console.log('soundtrackCorrect',this.soundtrackCorrect)
+                this.soundtrackCorrect = true                
             }
         }
     }

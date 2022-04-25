@@ -6,7 +6,13 @@
         <div class="image">
             <img :src="imageSrc" alt="Photo of a musician" class="image__content">
         </div>
-        <audio-player class="actions__player_right" :file="musicFile"/>
+        <audio-player 
+            class="actions__player_right" 
+            :file= musicFile
+            :block-state = blockState
+            :answer-image= answerImage     
+            :next-q = nextQ       
+            />
         <div class="description">
             <h2 class="description__content">{{answer.description}}</h2>
         </div>
@@ -20,14 +26,43 @@ export default {
        answer:{
            type: Object,
            required: true,
-       },        
+       },     
+		blockState:{
+			type: Boolean,
+			required: false,
+		},
+		correctId:{
+            type: String,
+            required: false,
+            default:''
+        },  
+		answerImage:{
+			type: String,
+            required: false,
+            default:''
+		},		
+        nextQ: {
+            type: Boolean,
+            required: false,
+            default: false
+        }	        
+    },
+    data(){
+        return {
+           
+        }
     },
     computed: {
         imageSrc(){
             return 'https://levi9-song-quiz.herokuapp.com/api/' + this.answer.image
         },
-        musicFile(){
+        musicFile(){            
             return 'https://levi9-song-quiz.herokuapp.com/api/' + this.answer.audio
+        }
+    },
+    watch:{
+        nextQ(value){
+            console.log('nextQ songData',value)
         }
     }
 

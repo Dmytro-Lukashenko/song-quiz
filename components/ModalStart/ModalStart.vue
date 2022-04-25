@@ -28,8 +28,7 @@ export default {
     }, 
      methods:{
         startQuiz(){
-            this.$store.dispatch('setPlayerName', this.nameValue)             
-            console.log('1',this.$store.state.loadedData)          
+            this.$store.dispatch('setPlayerName', this.nameValue) 
             this.$router.push('/quiz')
         }
     }

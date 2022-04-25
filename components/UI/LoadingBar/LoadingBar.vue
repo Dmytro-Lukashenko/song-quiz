@@ -26,7 +26,7 @@ export default {
       console.log(error)
     },
     increase(num) {      
-      console.log('increase', num)
+      // console.log('increase', num)
     },
   },
   }

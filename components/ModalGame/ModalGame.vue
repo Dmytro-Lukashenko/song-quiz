@@ -23,6 +23,7 @@
                     :file = urlRandomMusic
                     :block-state = blockState
                     :answer-image= answerImage
+                    :next-q = nextQ
                      />
               
                 <quiz-question
@@ -48,6 +49,8 @@
                 <song-data
                      v-else                    
                     :answer = answer
+                    :next-q = nextQ
+                    :music-file = musicFile
                 />
             </div>            
         </div>
@@ -55,7 +58,7 @@
             <quiz-button
              :title="$store.state.genre === 3 ? title1 : title2"
              :disabled="!blockState"
-             @click.prevent="$store.state.genre < 3 ?  $emit('nextQuestion')  : $emit('endQuiz')"
+             @click.prevent="$store.state.genre < 3 ?  nextQuestion()  : endQuiz()"
              ></quiz-button>
         </div>
     </div>
@@ -70,16 +73,27 @@ export default {
             required: false,
             default:'',
         },
+        musicFile:{
+            type: String,
+            required: false,
+            default:'',
+        },
         correctId:{
             type: String,
             required: false,
             default:''
         },        
+        nextQ:{
+			type: Boolean,
+			required: false,
+			default: false,
+		}    
     },
     data() {
-        return {             
+        return {        
+            currentTime: 0,     
             answer: null,
-            randomMusic: '',  
+            randomMusic: '',
             correctAnswer: null, 
             blockState: false,  
             answerImage:'',     
@@ -90,7 +104,8 @@ export default {
                 1: 'Rock',
                 2: 'Pop',
                 3: 'Soundtrack',
-            }
+            },
+            
                
         }
     },    
@@ -111,35 +126,34 @@ export default {
         correctId(val){
            this.answer = null
            this.blockState = false
-        }
-    },
-    created(){
-        console.log('created ModalGame')
-    },
-    mounted(){
-        console.log('mounted ModalGame')
-    },
+        },
+        nextQ(value){
+			console.log('nextQ modal-game value', value)
+		}
+    },   
     methods:{
 
         giveAnswer(giveAnswer){               
             this.answer = JSON.parse(JSON.stringify(giveAnswer))    
             if (this.blockState){
                 return
-            }
-            console.log(this.answer)
-            if(this.answer.id === this.correctId){
-                console.log('You are right') 
+            }           
+            if(this.answer.id === this.correctId){               
                 this.$store.dispatch('changeCorrectState')             
                 this.blockState = true;
-                this.answerImage = this.answer.image
-                console.log('record answerImage',this.answerImage)
+                this.answerImage = this.answer.image                
                 this.$store.dispatch('totalScoreChange')
-            } else {
-                console.log('You are wrong')
+            } else {                
                 this.$store.dispatch('changeWrongState', this.answer.id)
                 this.$store.dispatch('scoreDecrease')
             }        
         },
+        nextQuestion(){ 
+            this.$emit('nextQuestion')
+        },
+        endQuiz(){
+            this.$emit('endQuiz')
+        }
         
         
     }
