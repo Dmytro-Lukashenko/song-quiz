@@ -11,6 +11,7 @@
 </template>
 <style lang="scss" scoped>
 @import '~assets/scss/variables';
+@import '~assets/scss/mixins';
 .bg__container{
     position: relative;
     height: 100%;
@@ -26,6 +27,18 @@
       z-index: 0;          
       
       animation: blob 7s infinite;
+       @include respond-tabletLandScape {
+        width: 45rem;
+        height: 45rem;       
+      }
+      @include respond-tabletPortrait {
+        width: 40rem;
+        height: 40rem; 
+      }
+      @include respond-mobile {
+        width: 35rem;
+        height: 35rem;         
+      }
 
       &-red {       
         z-index: 0;     

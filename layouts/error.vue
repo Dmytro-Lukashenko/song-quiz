@@ -22,6 +22,7 @@ export default {
 
 <style lang="scss" scoped>
 @use '~assets/scss/variables' as *;
+@use '~assets/scss/mixins' as *;
 .error-page {
   position: relative;
   font-size: 3rem;
@@ -33,6 +34,15 @@ export default {
   align-items: center;
   justify-content: center;
   color: $white;
+   @include respond-tabletLandScape {
+        font-size: 2.5rem;    
+      }
+      @include respond-tabletPortrait {
+        font-size: 2rem;    
+      }
+      @include respond-mobile {
+        font-size: 1.5rem;     
+      }
   &__link {
     // text-decoration: none;
     color: red;

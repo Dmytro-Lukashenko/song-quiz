@@ -1,4 +1,5 @@
 @use '~assets/scss/variables' as *;
+@use '~assets/scss/mixins' as *;
 .container{  
   position:fixed;
   margin: 4rem 6rem;
@@ -6,6 +7,15 @@
   height: 80vh;
   z-index:0; 
   border: transparent; 
+  @include respond-tabletLandScape {
+    margin: 3rem 5rem;
+  }
+  @include respond-tabletPortrait {
+    margin: 2rem 4rem;
+  }
+  @include respond-mobile {
+    margin: 1rem 3rem;
+  }
 
     .loader {
       display: inline-block;
@@ -25,6 +35,15 @@
         font-size: 5rem;
         transform: translate(-50%, -50%);
         animation: title_anime 1.2s infinite;
+        @include respond-tabletLandScape {
+          font-size: 4.5rem;
+        }
+        @include respond-tabletPortrait {
+          font-size: 4rem;
+        }
+        @include respond-mobile {
+          font-size: 3.5rem;
+        }
       } 
       @keyframes title_anime {
         0% {
@@ -43,17 +62,31 @@
       display: block;
       border-radius: 50%;
       width: 0;
-      height: 0;
-      margin: 8px;
+      height: 0;     
       box-sizing: border-box;
-      border: 50px solid #fff;
+      border: 5rem solid #fff;
       border-color: #fff transparent #fff transparent;
       animation: lds-hourglass 1.2s infinite;
+      @include respond-tabletLandScape {
+        border: 4rem solid #fff;
+        border-color: #fff transparent #fff transparent;
+        animation: lds-hourglass 1.2s infinite;
+      }
+      @include respond-tabletPortrait {
+        border: 3rem solid #fff;
+        border-color: #fff transparent #fff transparent;
+        animation: lds-hourglass 1.2s infinite;
+      }
+      @include respond-mobile {
+        border: 2rem solid #fff;
+        border-color: #fff transparent #fff transparent;
+        animation: lds-hourglass 1.2s infinite;
+      }
     }
     @keyframes lds-hourglass {
       0% {
         transform: rotate(0);
-        animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+        animation-timing-function: cubic-bezier(0.15, 0.02, 0.3, 0.19);
       }
       50% {
         transform: rotate(900deg);

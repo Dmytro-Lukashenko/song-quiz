@@ -1,7 +1,7 @@
 <template>      
     <div>        
         <modal-game     
-            
+            v-if="finish"
             :player-name = getPlayerName   
             :url-random-music = urlRandomMusic
             :correct-id = correctId 
@@ -23,7 +23,8 @@ export default {
             urlRandomMusic: '',
             musicFile:'',
             correctId:'',             
-            nextQ: false
+            nextQ: false,
+            finish: false,            
         }
     },       
     async fetch({ store, $axios }) {  
@@ -38,8 +39,8 @@ export default {
         this.$nextTick(() => {
         this.$nuxt.$loading.start()
         setTimeout(() => {
-            this.finish = true;
             this.$nuxt.$loading.finish()
+            this.finish = true
         }, 2000)
         })        
         this.$store.dispatch('loadData')

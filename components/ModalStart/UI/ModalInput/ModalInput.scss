@@ -1,10 +1,11 @@
 @use "@/assets/scss/variables" as *;
+@use '~assets/scss/mixins' as *;
 .modal__input{
     font-family: 'Arial';
     font-style: normal;
     font-weight: 700;
-    font-size: 1.4rem;
-    line-height: 150%;        
+    font-size: 2rem;
+    line-height: 1.5rem;        
     color: $white;        
     width: 73rem;
     height: 5.5rem;
@@ -17,6 +18,30 @@
     transition-property: border-color;
     transition-timing-function: cubic-bezier(.4,0,.2,1);
     transition-duration: .2s;
+    @include respond-tabletLandScape {
+        font-weight: 600;
+        font-size: 1.5rem;
+        line-height: 1.3rem;        
+        color: $white;        
+        width: 55rem;
+        height: 3.5rem;
+      }
+      @include respond-tabletPortrait {
+        font-weight: 500;
+        font-size: 1.2rem;
+        line-height: 1rem;        
+        color: $white;        
+        width: 37rem;
+        height: 3rem;
+      }
+      @include respond-mobile {
+        font-weight: 400;
+        font-size: 1rem;
+        line-height: 0.8rem;        
+        color: $white;        
+        width: 20rem;
+        height: 2.5rem;        
+      }
     &::placeholder{            
         text-transform: uppercase;  
         font-weight: 400;          
