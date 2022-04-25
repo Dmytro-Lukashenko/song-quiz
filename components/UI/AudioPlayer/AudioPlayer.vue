@@ -24,7 +24,7 @@
                   />                         
           </svg>  		     
       </div>
-        <audio ref="audio" :src="file" style="display: none;" @timeupdate="nextQ ? updateNext : update" @loadeddata="load" @pause="playing = false"  @play="playing = true"></audio>
+        <audio ref="audio" :src="file" style="display: none;" @timeupdate="update" @loadeddata="load" @pause="playing = false"  @play="playing = true"></audio>
     </div> 
     <div id="seek" class="player-rightside">									
 		<div class="custom__range">
@@ -121,12 +121,14 @@ filters: {
 			console.log('Audioplayer nextQ', value)	
 			if(this.playing){
 				this.playing = !this.playing
-			} 
-			if (this.$refs.audio.currentTime === undefined){
-				console.log('fuck currentTime')
-			}
-			
+			} 	
 		},
+		file(value){
+			console.log(value)
+			if(this.playing){
+				this.playing = !this.playing
+			} 	
+		}
 		
 	},    
 	methods: {		
@@ -136,7 +138,6 @@ filters: {
 				this.durationSeconds = parseInt(this.$refs.audio.duration);                
 				return this.playing 
 			}
-
 			throw new Error('Failed to load sound file.');
 		},		
 		seek(e) {	
@@ -153,12 +154,12 @@ filters: {
 			this.$refs.audio.currentTime = 0;			
 		},
 		update(e) {	
+			try{
 			this.currentSeconds = Math.trunc(this.$refs.audio.currentTime);							
+			}
+			catch{}
 		},
-		updateNext(e){
-			console.log('updateNext')
-			this.currentSeconds = 0
-		},
+	
 		moveSlider(e){
 			const bounds = e.target.value/100
 			this.$refs.audio.muted = true
