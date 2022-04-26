@@ -20,6 +20,7 @@ export default {
             type: Number,
             requred:true,
         },
+        // eslint-disable-next-line vue/require-default-prop
         totalScore:{
             type: Number,
             requred:true,

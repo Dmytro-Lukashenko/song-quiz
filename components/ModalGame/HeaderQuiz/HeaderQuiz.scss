@@ -1,5 +1,6 @@
 
 @use '~assets/scss/variables' as *;
+@use '~assets/scss/mixins' as *;
 .quiz__header{
     display:flex;
     flex-direction: row;
@@ -11,6 +12,18 @@
     &-logo{
       width:13.8rem;
       height:2.3rem;
+      @include respond-tabletLandScape {
+       width: 13rem;
+       height: 2rem;   
+      }
+      @include respond-tabletPortrait {
+        width: 12.5rem;
+        height: 1.8rem;
+      }
+      @include respond-mobile {
+        width: 12rem;
+        height: 1.5rem;
+      }
     }
     &-content{
       display:flex; 
@@ -25,6 +38,18 @@
         font-size: 1.6rem;
         line-height: 150%;
         text-transform: uppercase;
+        @include respond-tabletLandScape {
+          font-size: 1.4rem; 
+          margin-right: 2.5rem;
+         }
+         @include respond-tabletPortrait {
+          font-size: 1.2rem;
+          margin-right: 2rem;
+         }
+         @include respond-mobile {
+          font-size: 1rem;
+          margin-right: 1.5rem;
+         }
       }
       &--title{
         color:$white;
@@ -33,6 +58,15 @@
         font-weight: 400;
         font-size: 1.6rem;
         line-height: 150%;
+        @include respond-tabletLandScape {
+          font-size: 1.4rem;   
+         }
+         @include respond-tabletPortrait {
+          font-size: 1.2rem;
+         }
+         @include respond-mobile {
+          font-size: 1rem;
+         }
       }
       &--score{
         font-family: 'Arial';
@@ -40,6 +74,15 @@
         font-weight: 700;
         font-size: 1.6rem;
         line-height: 150%;
+        @include respond-tabletLandScape {
+          font-size: 1.4rem; 
+         }
+         @include respond-tabletPortrait {
+          font-size: 1.2rem;
+         }
+         @include respond-mobile {
+          font-size: 1.1rem;
+         }
       }
     }   
   }

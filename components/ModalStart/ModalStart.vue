@@ -1,5 +1,5 @@
 <template>
-<form class="modal">
+<form class="modal" v-if="!start">
     <h1 class="modal__title">{{title}}</h1>
     <p class="modal__subtitle">{{subtitle}}</p>
     <div>
@@ -23,13 +23,15 @@ export default {
         return {
             nameValue:'',
             title: 'Wellcome!',
-            subtitle: 'Please enter your name and let\'s start our quiz!'
+            subtitle: 'Please enter your name and let\'s start our quiz!',
+            start: false,
         }
     }, 
      methods:{
         startQuiz(){
-            this.$store.dispatch('setPlayerName', this.nameValue) 
-            this.$router.push('/quiz')
+            this.start = true;
+            this.$store.dispatch('setPlayerName', this.nameValue); 
+            this.$router.push('/quiz');
         }
     }
 }

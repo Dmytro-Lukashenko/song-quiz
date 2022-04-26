@@ -1,26 +1,67 @@
 @use '~assets/scss/variables' as *;
 @use '~assets/scss/mixins' as *;
 
+html, body {
+  @include respond-tabletLandScape {
+		overflow: visible;
+	  }
+	  @include respond-tabletPortrait {
+		overflow: visible;
+	  }
+	  @include respond-mobile {
+		overflow: visible;         
+	  }
+}
+
 .container{  
   position:relative;
   margin: 3rem 6rem;
   height: 100vh;
-  z-index:30;    
+  z-index:30;   
+  @include respond-tabletLandScape {
+    margin: 2.5rem 5.5rem;     
+   }
+   @include respond-tabletPortrait {
+    margin: 2rem 5rem;
+   }
+   @include respond-mobileXL {
+    margin: 1.5rem 4.5rem;
+   }
+   @include respond-mobileL {
+    margin: 1rem 4rem;
+   }
+   @include respond-mobile {
+    margin: 1rem 3rem;
+   }
+   @include respond-mobileS {
+    margin: 1rem 2rem;
+   }
   .quiz__wrapper{          
       color: $white;
       display:grid;    
       grid-template-columns: repeat(12,minmax(0,1fr));
       gap: 3rem;
-      padding: 6rem 0 2rem 6rem;
+      padding: 6rem 4rem 2rem 6rem;
       margin-bottom: 1rem;
       overflow: hidden;
       background: $violet-800;
       border-radius:0px 0px 1rem 1rem;
-
+      
       .actions{
         grid-column: span 5 / span 5;
         margin-bottom: 2.75rem;
-
+        @include respond-tabletLandScape {
+          grid-area: a; 
+          margin-bottom: 2.75rem;
+        }
+        @include respond-tabletPortrait {
+          grid-area: a;
+          margin-bottom: 2rem;
+        }
+        @include respond-mobile {
+          grid-area: a;
+          margin-bottom: 1.7rem;      
+        }
         &__title{
           font-family: 'Prompt';
           font-style: normal;
@@ -28,12 +69,29 @@
           font-size: 3rem;
           line-height: 4.5rem;;
           margin-bottom: 1rem;
-            
-          @include respond-mobile{
-            font-weight: 400;
-            font-size: 2rem;
-            line-height: 2.5rem;;
+          @include respond-tabletLandScape {
+            display: block;
+            font-weight: 600;
+            font-size: 2.5rem;
+            line-height: 3.5rem;
+            margin-bottom: 0.8rem;
           }
+          @include respond-tabletPortrait {
+            display: block;
+            font-weight: 500;
+            font-size: 2rem;
+            line-height: 3rem;
+            margin-bottom: 0.6rem;
+          }
+          @include respond-mobile {
+            display: block;
+            font-weight: 400;
+            font-size: 1.6rem;
+            line-height: 2.5rem;
+            margin-bottom: 0.5rem; 
+            padding: 1rem        
+          }
+         
 
         }
         &__subtitle{
@@ -41,37 +99,83 @@
           font-style: normal;
           font-weight: 400;
           font-size: 1.4rem;
-          line-height: 150%;        
+          line-height: 1.5rem;        
           color: #FFFFFF;
           opacity: 0.7;
           margin-bottom: 3rem;
-
-          @include respond-mobile{
+          @include respond-tabletLandScape {
+            display: block;
+            font-weight: 400;
+            font-size: 1.2rem;
+            line-height: 1.3rem;
+            margin-bottom: 2.5rem;
+          }
+          @include respond-tabletPortrait {
+            display: block;
+            font-weight: 400;
+            font-size: 1rem;
+            line-height: 1rem;
+            margin-bottom: 2rem;
+          }
+          @include respond-mobile {
+            display: block;
             font-weight: 400;
             font-size: 0.8rem;
-            line-height: 80%;
+            line-height: 0.8rem;
+            margin-bottom: 1.5rem;         
           }
+        
         }       
         
       }
       .info{        
         position: relative;    
-        grid-column: span 7 / span 7;        
+        grid-column: span 7 / span 7;
+        @include respond-tabletLandScape {
+          grid-area: b;          
+         }        
+         @include respond-tabletPortrait {          
+          grid-area: b;
+        }
+        @include respond-mobile {          
+          grid-area: b;
+        }
         &__picture{
           position: absolute;
           display: block;
-          width: 65rem;
-          height: 65rem;
-          right: -7rem;
+          width: 60rem;
+          height: 60rem;
+          right: -10rem;
           top: 7rem;
+          @include respond-tabletLandScape {
+           visibility: hidden;
+          }
+          @include respond-tabletPortrait {
+            visibility: hidden;
+          }
+          @include respond-mobile {
+            visibility: hidden;
+          }
         }
       }
+      @include respond-tabletLandScape {        
+        grid-template-columns: repeat(1, 1fr);
+        padding: 5rem 4rem 2rem 5rem;    
+        grid-row-gap: 2rem;
+        grid-column-gap: 0rem;  
+        grid-auto-rows: 50%;
+        grid-template-areas:
+          "a"
+          "b";     
+       }     
+    }
+
     }
   .quiz__button{
     display: flex;
     justify-content: right;
   }
-  }
+
 
 
 

@@ -1,10 +1,29 @@
 @use '~assets/scss/variables' as *;
+@use '~assets/scss/mixins' as *;
 .actions__question{
     width: 41.5rem;
     height: 6rem;
     border: 0.1rem solid $violet-700;
     border-radius: 0.5rem;
     margin-bottom: 1rem;
+    @include respond-tabletLandScape {
+      width: 80%;    
+    }
+    @include respond-tabletPortrait {
+      width: 80%;    
+    }
+    @include respond-mobileXL {
+      width: 80%;
+    }
+    @include respond-mobileL {
+      width: 80%;
+    }
+    @include respond-mobile {
+      width: 75%;
+    }
+    @include respond-mobileS {
+      width: 45%;
+    }   
     &:hover {
         cursor: pointer;
         border: 0.1rem solid $white;
@@ -32,6 +51,12 @@
         font-style: normal;
         font-weight: 400;
         font-size: 1.4rem;
+        @include respond-mobile {
+          font-size: 1rem;
+        }
+        @include respond-mobileS {
+          font-size: 0.8rem;
+        }   
        
       }
     }

@@ -14,6 +14,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '~assets/scss/variables';
+@import '~assets/scss/mixins';
   .wrapper {
     position: relative;
     display: flex;
@@ -30,7 +31,7 @@ export default {
       left:50%;
       transform: translateX(-50%);
       width: 13rem;
-      z-index: 10;
+      z-index: 10;   
     }   
     .modal-start{
       text-align: center;   

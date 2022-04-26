@@ -5,8 +5,17 @@
     transform: translate(-50%, -50%)
 }
 
+@mixin respond-mobileS{
+    @media(max-width: 470px){ @content };
+}
 @mixin respond-mobile{
     @media(max-width: 600px) { @content };    
+}
+@mixin respond-mobileL{
+    @media(max-width: 680px){ @content };
+}
+@mixin respond-mobileXL{
+    @media(max-width: 750px){ @content };
 }
 @mixin respond-tabletPortrait{
     @media(max-width: 900px) { @content };
@@ -14,8 +23,8 @@
 @mixin respond-tabletLandScape {
     @media(max-width: 1185px) { @content };
 }
-@mixin respond-big-desktop {
-    @media(min-width: 1800px) { @content };
+@mixin respond-desktop {
+    @media(min-width: 1185px) { @content };
 }
 
 

@@ -17,7 +17,9 @@
     height: 100%;
     width: 100%;
     z-index: 0;   
-    box-sizing: border-box;      
+    box-sizing: border-box;
+    
+     
 
     .bg__animated {
       position: absolute;      
@@ -27,18 +29,31 @@
       z-index: 0;          
       
       animation: blob 7s infinite;
-       @include respond-tabletLandScape {
-        width: 45rem;
-        height: 45rem;       
-      }
-      @include respond-tabletPortrait {
+        @include respond-tabletPortrait {
         width: 40rem;
-        height: 40rem; 
-      }
-      @include respond-mobile {
-        width: 35rem;
-        height: 35rem;         
-      }
+        height: 40rem;
+        z-index: 0; 
+       }
+       @include respond-mobileXL {
+        width: 40rem;
+        height: 40rem;
+        z-index: 0; 
+       }
+       @include respond-mobileL {
+        width: 40rem;
+        height: 40rem;
+        z-index: 0; 
+       }
+       @include respond-mobile {
+        width: 40rem;
+        height: 40rem;
+        z-index: 0; 
+       }
+       @include respond-mobileS {
+        width: 40rem;
+        height: 40rem;
+       }
+      
 
       &-red {       
         z-index: 0;     

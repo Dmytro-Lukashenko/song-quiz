@@ -1,8 +1,27 @@
 @use '~assets/scss/variables' as *;
+@use '~assets/scss/mixins' as *;
 .data__container{
     width:56.5rem;
     display: flex;
     flex-direction: column;    
+    @include respond-tabletLandScape {
+      width: 80%;    
+    }
+    @include respond-tabletPortrait {
+      width: 80%;    
+    }
+    @include respond-mobileXL {
+      width: 80%;
+    }
+    @include respond-mobileL {
+      width: 80%;
+    }
+    @include respond-mobile {
+      width: 75%;
+    }
+    @include respond-mobileS {
+      width: 45%;
+    }  
 
     .title{
         color:$white;
@@ -12,20 +31,53 @@
             font-style: normal;
             font-weight: 700;
             font-size: 2rem;
-            line-height: 2rem;            
+            line-height: 2rem;
+            @include respond-tabletLandScape {
+                font-weight: 600;
+                font-size: 1.8rem;
+                line-height: 2.5rem;
+              }
+              @include respond-tabletPortrait {
+                font-weight: 500;
+                font-size: 1.6rem;
+                line-height: 2rem;
+              }
+              @include respond-mobile {
+                font-weight: 400;
+                font-size: 1.4rem;
+                line-height: 1.5rem;                        
+              }            
         }
     }
 
     .image{
         width:56.5rem;
         height:30rem;
-        overflow: hidden;       
+        overflow: hidden;      
+       @include respond-tabletLandScape {
+      width: 94%;    
+    }
+    @include respond-tabletPortrait {
+      width: 92%;    
+    }
+    @include respond-mobileXL {
+      width: 91%;
+    }
+    @include respond-mobileL {
+      width: 91%;
+    }
+    @include respond-mobile {
+      width: 90%;
+    }
+    @include respond-mobileS {
+      width: 45%;
+    }   
 
         &__content{            
             object-position: 50% 50%;
             object-fit: cover;
             width:100%;
-            height:100%;
+            height:100%;            
         }
     }
 
@@ -33,31 +85,64 @@
         overflow: hidden;        
     }
     ::-webkit-scrollbar {
-        width: 20px;
+        width: 20px;       
       }
       ::-webkit-scrollbar-track {
         box-shadow: inset 0 0 5px $violet-700; 
-        border-radius: 10px;
+        border-radius: 1rem;
       }
       ::-webkit-scrollbar-thumb {
         background: $violet-700; 
-        border-radius: 10px;
+        border-radius: 1rem;
       }
       
     .description{
         text-align: center;    
         width:100%;    
         height:8.5rem;
-        overflow:auto;      
+        overflow:auto;  
+        @include respond-tabletLandScape {
+          width: 94%;    
+        }
+        @include respond-tabletPortrait {
+          width: 92%;    
+        }
+        @include respond-mobileXL {
+          width: 91%;
+        }
+        @include respond-mobileL {
+          width: 91%;
+        }
+        @include respond-mobile {
+          width: 90%;
+        }
+        @include respond-mobileS {
+          width: 45%;
+        }       
         
   
         &__content{            
             font-family: 'Arial';
             font-style: normal;
             font-weight: 400;
-            font-size: 14px;
-            line-height: 150%;
-            opacity: 0.7;     
+            font-size: 1.4rem;
+            line-height: 2rem;
+            opacity: 0.7;    
+            @include respond-tabletLandScape {
+                font-weight: 400;
+                font-size: 1.2rem;
+                line-height: 1.5rem;
+              }
+              @include respond-tabletPortrait {
+                font-weight: 400;
+                font-size: 1rem;
+                line-height: 1.5rem;
+              }
+              @include respond-mobile {
+                font-weight: 400;
+                font-size: 0.8rem;
+                line-height: 1.5rem;                        
+              }             
                   
         }
     }

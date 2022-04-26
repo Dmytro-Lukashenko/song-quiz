@@ -1,4 +1,5 @@
 @use '~assets/scss/variables' as *;
+@use '~assets/scss/mixins' as *;
 .quiz__music_genre{ 
     padding: 0 6rem;          
     width:100%;
@@ -24,10 +25,33 @@
         font-weight: 400;
         font-size: 1.4rem;
         line-height: 100%;
-
+        @include respond-tabletLandScape {
+          font-weight: 400;
+          font-size: 1.2rem;  
+         }
+         @include respond-tabletPortrait {
+          font-weight: 400;
+          font-size: 1rem; 
+         }
+         @include respond-mobile {
+          font-weight: 400;
+          font-size: 0.8rem; 
+         }
         &-arrow{                           
             width: 1.5rem;
             height: 1.5rem;    
+            @include respond-tabletLandScape {
+              width: 1.3rem;
+              height: 1.3rem;   
+             }
+             @include respond-tabletPortrait {
+               width: 1.1rem;
+               height: 1.1rem;
+             }
+             @include respond-mobile {
+               width: 0.9rem;
+               height: 0.9rem;
+             }
         }
       }
       .active{

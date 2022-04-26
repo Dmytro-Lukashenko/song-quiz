@@ -1,4 +1,5 @@
 @use "variables" as *;
+@use 'mixins' as *;
 *{
 	padding: 0;
 	margin: 0;
@@ -23,7 +24,18 @@ html,body{
 	-moz-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
      background-color: $violet-900;
-     overflow: hidden;
+     overflow: hidden;	
+	 @include respond-tabletLandScape {
+		overflow-y: visible;
+	  }
+	  @include respond-tabletPortrait {
+		overflow-y: visible;
+	  }
+	  @include respond-mobile {
+		overflow-y: visible;         
+	  }
+
+
 }
 input,button,textarea{font-family:inherit;}
 
