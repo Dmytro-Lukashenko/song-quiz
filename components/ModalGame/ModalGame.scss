@@ -25,6 +25,9 @@
    @include respond-mobileS {
     margin: 1rem 2rem;
    }
+   @include respond-mobileXS {
+    margin: 1rem 1rem;
+   }
   .quiz__wrapper{          
       color: $white;
       display:grid;    

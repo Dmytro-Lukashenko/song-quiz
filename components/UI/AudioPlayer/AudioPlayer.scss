@@ -12,7 +12,7 @@
 
     @include respond-tabletLandScape {
       width: 100%;    
-    }
+    }    
     .player__button{
       width: 9rem;
       height: 9rem;
@@ -87,8 +87,6 @@
       padding-top: 2rem;
       
       .custom__range{   
-
-        $track-w: 27rem; 
         $track-h: .5rem;
         $thumb-d: 1rem;
         $track-c: #ccc;
@@ -110,16 +108,16 @@
             width: 30rem;
           }
           @include respond-mobileL {
-            width: 25rem;
+            width: 20rem;
           }
           @include respond-mobile {
-            width: 20rem;
+            width: 12rem;
           }   
           @include respond-mobileS {
-            width: 14rem;
+            width: 10rem;
           } 
           @include respond-mobileXS {
-            width: 12rem;
+            width: 7rem;
           } 
   
             
@@ -168,16 +166,16 @@
                 width: 30rem;
               }
               @include respond-mobileL {
-                width: 25rem;
+                width: 20rem;
               }
               @include respond-mobile {
-                width: 20rem;
+                width: 12rem;
               }   
               @include respond-mobileS {
-                width: 14rem;
+                width: 9rem;
               } 
               @include respond-mobileXS {
-                width: 12rem;
+                width: 7rem;
               } 
               
               &::-webkit-slider-runnable-track {
