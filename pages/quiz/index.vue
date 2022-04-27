@@ -71,6 +71,8 @@ export default {
             this.correctId = this.$store.getters.getRandomQuizMusic[1] 
             this.$store.dispatch('setCorrectId', this.correctId)       
             this.$store.dispatch('clearData')           
+            this.$store.dispatch('tryAgain')
+            console.log(this.$store.state.again)
             this.$router.push('/summary')
        },  
    }

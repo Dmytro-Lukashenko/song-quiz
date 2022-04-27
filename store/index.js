@@ -10,6 +10,7 @@ import {
   SCORE_DECREASE,
   LOAD_DATA,
   CLEAR_STATE,
+  TRY_AGAIN,
 } from './-listMutations'
 
 export const state = () => ({
@@ -20,6 +21,7 @@ export const state = () => ({
   loadedData: [],
   genre: 0,
   correctId: '',
+  again: true,
 })
 
 export const mutations = {
@@ -66,6 +68,9 @@ export const mutations = {
     state.correctId = ''
     state.totalScore = 0
   },
+  [TRY_AGAIN](state) {
+    state.again = !state.again
+  },
 }
 
 export const actions = {
@@ -101,6 +106,9 @@ export const actions = {
   },
   clearState({ commit }) {
     commit('CLEAR_STATE')
+  },
+  tryAgain({ commit }) {
+    commit('TRY_AGAIN')
   },
 }
 

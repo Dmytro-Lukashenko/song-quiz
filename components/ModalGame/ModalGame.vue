@@ -126,10 +126,7 @@ export default {
         correctId(val){
            this.answer = null
            this.blockState = false
-        },
-        nextQ(value){
-			console.log('nextQ modal-game value', value)
-		}
+        },       
     },   
     methods:{
 

@@ -2,9 +2,10 @@
   <div class="wrapper">        
     <img class="logo" src="@/static/images/desktop/logo.png" alt="logo">
     <modal-summary 
+      v-if="!$store.state.again"
       class= "modal-summary"
       :player-name = getPlayerName  
-      :total-score = $store.state.totalScore 
+      :total-score = $store.state.totalScore       
       />  
   </div>  
 </template>
@@ -14,6 +15,8 @@ import getPlayerName from '~/mixins/getPlayerName.js'
 export default {
   mixins: [getPlayerName],
   middleware:['check-name'],
+  methods:{    
+  }
 
 }
 </script>
