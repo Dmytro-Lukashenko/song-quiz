@@ -1,7 +1,7 @@
 <template>      
     <div>        
         <modal-game     
-            v-if="finish"
+            v-if="finish && $store.state.again"
             :player-name = getPlayerName   
             :url-random-music = urlRandomMusic
             :correct-id = correctId 
