@@ -4,7 +4,15 @@
     left: 50%;
     transform: translate(-50%, -50%)
 }
-
+@mixin flexCenter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+//RESPOND MIXINS
+@mixin respond-mobileXS{
+    @media(max-width: 320px){ @content };
+}
 @mixin respond-mobileS{
     @media(max-width: 470px){ @content };
 }

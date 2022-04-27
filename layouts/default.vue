@@ -1,12 +1,12 @@
 <template>
-<div class="bg__container">
-    <div class="bg__animated bg__animated-red">      
-    </div>
-    <div class="bg__animated bg__animated-sky">      
-    </div>
-    <div class="bg__animated bg__animated-yellow">      
-    </div>    
-  <nuxt/>
+  <div class="bg__container">
+      <div class="bg__animated bg__animated-red">      
+      </div>
+      <div class="bg__animated bg__animated-sky">      
+      </div>
+      <div class="bg__animated bg__animated-yellow">      
+      </div>    
+    <nuxt/>
   </div>
 </template>
 <style lang="scss" scoped>
@@ -18,43 +18,18 @@
     width: 100%;
     z-index: 0;   
     box-sizing: border-box;
-    
-     
-
     .bg__animated {
       position: absolute;      
       width: 50rem;
       height: 50rem;
       border-radius: 50%;    
-      z-index: 0;          
-      
+      z-index: 0;       
       animation: blob 7s infinite;
         @include respond-tabletPortrait {
         width: 40rem;
         height: 40rem;
         z-index: 0; 
-       }
-       @include respond-mobileXL {
-        width: 40rem;
-        height: 40rem;
-        z-index: 0; 
-       }
-       @include respond-mobileL {
-        width: 40rem;
-        height: 40rem;
-        z-index: 0; 
-       }
-       @include respond-mobile {
-        width: 40rem;
-        height: 40rem;
-        z-index: 0; 
-       }
-       @include respond-mobileS {
-        width: 40rem;
-        height: 40rem;
-       }
-      
-
+       }      
       &-red {       
         z-index: 0;     
         top: 1.25rem;
@@ -65,7 +40,7 @@
       }
       &-sky {         
         z-index: 0;   
-        bottom: -20rem;
+        bottom: 5rem;
         left: 25%;
         background: $sky-500;
         filter:blur(40px);

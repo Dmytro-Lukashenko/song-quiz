@@ -1,23 +1,12 @@
 @use '~assets/scss/variables' as *;
 @use '~assets/scss/mixins' as *;
 
-html, body {
-  @include respond-tabletLandScape {
-		overflow: visible;
-	  }
-	  @include respond-tabletPortrait {
-		overflow: visible;
-	  }
-	  @include respond-mobile {
-		overflow: visible;         
-	  }
-}
 
 .container{  
-  position:relative;
+  position:relative;  
   margin: 3rem 6rem;
-  height: 100vh;
-  z-index:30;   
+  
+  z-index:1000;   
   @include respond-tabletLandScape {
     margin: 2.5rem 5.5rem;     
    }
@@ -41,18 +30,21 @@ html, body {
       display:grid;    
       grid-template-columns: repeat(12,minmax(0,1fr));
       gap: 3rem;
-      padding: 6rem 4rem 2rem 6rem;
+      padding: 4rem 4rem 2rem 6rem;
       margin-bottom: 1rem;
       overflow: hidden;
       background: $violet-800;
       border-radius:0px 0px 1rem 1rem;
       
       .actions{
+        position: relative;
         grid-column: span 5 / span 5;
         margin-bottom: 2.75rem;
         @include respond-tabletLandScape {
           grid-area: a; 
           margin-bottom: 2.75rem;
+          z-index: 1;
+
         }
         @include respond-tabletPortrait {
           grid-area: a;
@@ -90,8 +82,7 @@ html, body {
             line-height: 2.5rem;
             margin-bottom: 0.5rem; 
             padding: 1rem        
-          }
-         
+          }         
 
         }
         &__subtitle{
@@ -132,7 +123,8 @@ html, body {
         position: relative;    
         grid-column: span 7 / span 7;
         @include respond-tabletLandScape {
-          grid-area: b;          
+          grid-area: b;  
+          z-index:0;        
          }        
          @include respond-tabletPortrait {          
           grid-area: b;
@@ -148,7 +140,10 @@ html, body {
           right: -10rem;
           top: 7rem;
           @include respond-tabletLandScape {
-           visibility: hidden;
+            width: 0;
+            height: 0;
+            z-index:0;
+           display: none;
           }
           @include respond-tabletPortrait {
             visibility: hidden;
@@ -167,6 +162,29 @@ html, body {
         grid-template-areas:
           "a"
           "b";     
+         
+       }     
+       @include respond-mobileS {        
+        grid-template-columns: repeat(1, 1fr);
+        padding: 1rem 3rem 2rem 3rem;    
+        grid-row-gap: 2rem;
+        grid-column-gap: 0rem;  
+        grid-auto-rows: 50%;
+        grid-template-areas:
+          "a"
+          "b";     
+          
+       }     
+       @include respond-mobileXS {        
+        grid-template-columns: repeat(1, 1fr);
+        padding: 1rem 3rem 2rem 3rem;    
+        grid-row-gap: 2rem;
+        grid-column-gap: 0rem;  
+        grid-auto-rows: 50%;
+        grid-template-areas:
+          "a"
+          "b";     
+          
        }     
     }
 

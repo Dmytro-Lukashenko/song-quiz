@@ -11,26 +11,8 @@
     margin-bottom: 2rem;
 
     @include respond-tabletLandScape {
-      width: 80%;    
+      width: 100%;    
     }
-    @include respond-tabletPortrait {
-      width: 80%;    
-    }
-    @include respond-mobileXL {
-      width: 80%;
-    }
-    @include respond-mobileL {
-      width: 80%;
-    }
-    @include respond-mobile {
-      width: 75%;
-    }
-    @include respond-mobileS {
-      width: 45%;
-    }   
-    
-  
-
     .player__button{
       width: 9rem;
       height: 9rem;
@@ -134,7 +116,10 @@
             width: 20rem;
           }   
           @include respond-mobileS {
-            width: 7rem;
+            width: 14rem;
+          } 
+          @include respond-mobileXS {
+            width: 12rem;
           } 
   
             
@@ -178,7 +163,7 @@
               }
               @include respond-tabletPortrait {
                 width: 40rem;
-              }
+              }         
               @include respond-mobileXL {
                 width: 30rem;
               }
@@ -187,9 +172,12 @@
               }
               @include respond-mobile {
                 width: 20rem;
-              }     
+              }   
               @include respond-mobileS {
-                width: 7rem;
+                width: 14rem;
+              } 
+              @include respond-mobileXS {
+                width: 12rem;
               } 
               
               &::-webkit-slider-runnable-track {
@@ -281,23 +269,8 @@
     border-radius: 0.5rem;
     margin-bottom: 2rem;
     @include respond-tabletLandScape {
-      width: 94%;    
+      width: 100%;    
     }
-    @include respond-tabletPortrait {
-      width: 92%;    
-    }
-    @include respond-mobileXL {
-      width: 91%;
-    }
-    @include respond-mobileL {
-      width: 91%;
-    }
-    @include respond-mobile {
-      width: 90%;
-    }
-    @include respond-mobileS {
-      width: 45%;
-    }   
 
     .player__button{
       width: 6rem;
@@ -402,7 +375,10 @@
             width: 20rem;
           }   
           @include respond-mobileS {
-            width: 7rem;
+            width: 14rem;
+          } 
+          @include respond-mobileS {
+            width: 12rem;
           } 
             
             }
@@ -455,7 +431,10 @@
                 width: 20rem;
               }   
               @include respond-mobileS {
-                width: 7rem;
+                width: 14rem;
+              } 
+              @include respond-mobileXS {
+                width: 12rem;
               } 
               &::-webkit-slider-runnable-track {
                 @include track(1)

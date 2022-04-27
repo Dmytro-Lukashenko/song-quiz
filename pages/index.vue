@@ -1,14 +1,16 @@
 <template>
   <div class="wrapper">        
-    <img class="logo" src="@/static/images/desktop/logo.png" alt="logo">
+    <img 
+      class="logo"
+      src="@/static/images/desktop/logo.png" 
+      alt="logo">
     <modal-start class= "modal-start"/>  
   </div>  
 </template>
 
 <script>
 export default {
-  name: 'IndexPage',
-  
+  name: 'IndexPage',  
 }
 </script>
 
@@ -16,13 +18,11 @@ export default {
 @import '~assets/scss/variables';
 @import '~assets/scss/mixins';
   .wrapper {
-    position: relative;
-    display: flex;
+    @include flexCenter;
+    position: relative;    
     flex-direction:column;
     height: 100%;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
+    width: 100%;    
     min-height: 100vh;    
 
     .logo{
@@ -37,8 +37,6 @@ export default {
       text-align: center;   
       z-index:1;   
     }
-  
-  
   }
  
 </style>

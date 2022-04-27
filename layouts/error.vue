@@ -14,7 +14,7 @@ export default {
   props: {
     error: {
       type: Object,
-      required: true
+      required: true,
     }
   }
 }
@@ -24,15 +24,13 @@ export default {
 @use '~assets/scss/variables' as *;
 @use '~assets/scss/mixins' as *;
 .error-page {
+  @include flexCenter;
   position: relative;
   font-size: 3rem;
   width: 100%;
   height: 100vh;
-  transform: translate(0%,-10%);
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  transform: translate(0%,-10%);  
+  flex-direction: column;  
   color: $white;
    @include respond-tabletLandScape {
         font-size: 2.5rem;    
@@ -43,9 +41,8 @@ export default {
       @include respond-mobile {
         font-size: 1.5rem;     
       }
-  &__link {
-    // text-decoration: none;
-    color: red;
+  &__link {    
+    color: $red-500;
   }
 }
 </style>

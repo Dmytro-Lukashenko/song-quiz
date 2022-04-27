@@ -27,12 +27,13 @@ export default {
     props:{
         title:{
             type: String,
-            required:true
+            required:true,
+            default:'',
         },
         nameValue:{
             type: String,
             required: false,
-            default:''
+            default:'',
         }
     },
 }

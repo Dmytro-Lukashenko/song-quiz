@@ -20,14 +20,13 @@ export default {
 
 <style lang="scss" scoped>
 @import '~assets/scss/variables';
+@import '~assets/scss/mixins';
   .wrapper {
-    position: relative;
-    display: flex;
+    @include flexCenter;
+    position: relative;    
     flex-direction:column;
     height: 100%;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
+    width: 100%;    
     min-height: 100vh;    
 
     .logo{

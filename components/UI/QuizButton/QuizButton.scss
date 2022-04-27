@@ -15,9 +15,8 @@
     background: linear-gradient(90deg, #7E55B3 -0.37%, #A769C4 100.37%);
     border-radius: 5px;
     text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    justify-content: center;    
+    @include flexCenter;
+       
     @include respond-tabletLandScape {
         font-weight: 600;
         font-size: 1.2rem;
