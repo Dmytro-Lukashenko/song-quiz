@@ -28,10 +28,14 @@ export default {
         }
     },       
     async fetch({ store, $axios }) {  
+        try{
         const fetchedData = await $axios.$get(
         'https://levi9-song-quiz.herokuapp.com/api/data'
         )
-        await store.dispatch('setData', fetchedData) 
+        await store.dispatch('setData', fetchedData)
+        }
+        // eslint-disable-next-line no-unused-expressions
+        catch{}
     },
     
     mounted(){
