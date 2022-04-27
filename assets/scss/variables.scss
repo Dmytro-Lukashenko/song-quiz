@@ -23,3 +23,8 @@ $yellow-300: #fde047;
 
 $green-300:#619A65;
 $green-800:#3E6441;
+
+//BUTTONS
+$disabled:linear-gradient(0deg, #808080 -0.37%, #656565 100.37%);
+$hover: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), linear-gradient(90deg, #7E55B3 -0.37%, #A769C4 100.37%);
+$primary-button: linear-gradient(90deg, #7E55B3 -0.37%, #A769C4 100.37%);

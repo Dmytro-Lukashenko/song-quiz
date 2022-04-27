@@ -71,13 +71,9 @@ export default {
             this.correctId = this.$store.getters.getRandomQuizMusic[1] 
             this.$store.dispatch('setCorrectId', this.correctId)       
             this.$store.dispatch('clearData')           
-            this.$store.dispatch('tryAgain')
-            console.log(this.$store.state.again)
+            this.$store.dispatch('tryAgain')            
             this.$router.push('/summary')
        },  
    }
 }
 </script>
-
-<style lang="scss" scoped>
-</style>

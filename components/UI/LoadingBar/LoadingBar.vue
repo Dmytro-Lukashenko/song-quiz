@@ -24,10 +24,7 @@ export default {
     },
     fail(error) {
       console.log(error)
-    },
-    increase(num) {      
-      // console.log('increase', num)
-    },
+    },    
   },
   }
 </script>

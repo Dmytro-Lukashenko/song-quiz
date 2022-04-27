@@ -59,12 +59,7 @@ export default {
         musicFile(){            
             return 'https://levi9-song-quiz.herokuapp.com/api/' + this.answer.audio
         }
-    },
-    watch:{
-        nextQ(value){
-            console.log('nextQ songData',value)
-        }
-    }
+    },    
 
 }
 </script>

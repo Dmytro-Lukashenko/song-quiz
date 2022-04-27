@@ -40,16 +40,7 @@ export default {
             type:Boolean,
             required: false,
         }
-   },
-   data(){
-       return {
-        
-       }
-   },
-   methods:{
-      
-   }
-
+   },  
 }
 </script>
 

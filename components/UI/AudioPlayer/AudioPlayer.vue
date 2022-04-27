@@ -82,15 +82,15 @@ filters: {
 	data(){
         return {			
         currentSeconds: 0,
-		durationSeconds: 0,
+		durationSeconds: 0.1,
 		loaded: false,		
 		playing: false,		
 		nextQuestion: false,	
         }
     },	
 	computed: {		
-		percentComplete() {
-			return parseInt(this.currentSeconds / this.durationSeconds * 100);
+		percentComplete() {			
+			return parseInt(this.currentSeconds / this.durationSeconds * 100)
 		},
 		progressStyle() {
 			const val = `--val: ${this.percentComplete}`			
@@ -116,19 +116,16 @@ filters: {
 			if (value) { return this.$refs.audio.play(); }
 			this.$refs.audio.pause();			
 		},				
-		nextQ(value){
-			console.log('Audioplayer nextQ', value)	
+		nextQ(){			
 			if(this.playing){
 				this.playing = !this.playing
 			} 	
 		},
-		file(value){
-			console.log(value)
+		file(){			
 			if(this.playing){
 				this.playing = !this.playing
 			} 	
-		}
-		
+		}		
 	},    
 	methods: {		
 		load() {
@@ -139,18 +136,19 @@ filters: {
 			}
 			throw new Error('Failed to load sound file.');
 		},		
-		seek(e) {	
-			console.log('seek', e)		
+		seek(e) {					
 			if (!this.loaded) return;
 			const bounds = e.target.getBoundingClientRect();			
 			const seekPos = (e.clientX - bounds.left) / bounds.width;
 			this.$refs.audio.currentTime = parseInt(this.$refs.audio.duration * seekPos);
 			this.$refs.audio.muted = false
 		},
-		stop(e) {			
-			console.log('stop', e)
+		stop(e) {	
+			try{
 			this.playing = false;
 			this.$refs.audio.currentTime = 0;			
+			}
+			catch{}
 		},
 		update(e) {	
 			try{
@@ -165,19 +163,17 @@ filters: {
 			this.$refs.audio.currentTime = parseInt(this.$refs.audio.duration * bounds);
 			e.target.style.setProperty('--val', +e.target.value);	
 		},
-		playPause(){		
-			console.log('pause')
-			this.playing = !this.playing 
-						
-		}
-		
-	},
-	
+		playPause(){
+			try{
+			this.playing = !this.playing 						
+			}
+			catch{}
+		}		
+	},	
 };
 </script>
 
 
 <style lang="scss" scoped>
 @import 'AudioPlayer.scss'
-
 </style>

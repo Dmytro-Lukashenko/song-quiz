@@ -30,7 +30,7 @@ export default {
         }
     },
     watch:{
-        blockState(value){            
+        blockState(){            
             if(this.$store.state.genre === 0 && this.blockState){
                 this.jazzCorrect = true               
             } else if (this.$store.state.genre === 1 && this.blockState){
